@@ -3,4 +3,34 @@ title = "Notes de cours"
 weight = 2
 +++
 
-Notes de cours sur votre sujet.
+## 0. Objectif du cours
+
+Ces notes ont pour objectif d’expliquer le protocole d’échange de clés Diffie–Hellman (DH). À la fin, vous serez capables de :
+
+- comprendre le problème que DH résout (distribution de clés) ;
+- maîtriser les principes mathématiques minimaux (arithmétique modulaire, logarithme discret) ;
+- connaître le protocole pas à pas, ses variantes et ses faiblesses ;
+- Identifier les usages réels de Diffie–Hellman (TLS 1.3, VPN, SSH, Wi‑Fi, messageries chiffrées) ;
+- Connaître les principales faiblesses du protocole
+
+### 0.1 Rappel rapide sur AES (chiffrement symétrique)
+
+Avant de parler de distribution de clés, rappelons l’outil qui consomme ces clés partagées : le chiffrement symétrique.
+
+- **But** : chiffrer/déchiffrer rapidement de grands volumes de données avec une clé unique partagée.
+- **Algorithme** : AES (Advanced Encryption Standard) travaille sur des blocs de 128 bits en enchaînant des tours de substitutions et permutations
+- **Tailles de clé** : 128, 192 ou 256 bits (AES‑128, AES‑192, AES‑256). Plus la clé est longue, plus elle résiste à la force brute.
+
+## 1. Pourquoi un échange de clés ?
+
+### 1.1 Le problème de la distribution de clés
+
+Le chiffrement symétrique (AES, ChaCha20) est rapide et sûr, mais il faut que les deux parties partagent la même clé secrète avant toute communication. Sur un réseau non sécurisé, comment établir cette clé sans qu’un attaquant puisse l’intercepter ? Historiquement, on utilisait des canaux physiques ou des tiers de confiance : peu pratique et impossible à l’échelle d’Internet.
+
+### 1.2 Idée générale de Diffie–Hellman
+
+Diffie–Hellman (1976) permet à deux parties qui ne se connaissent pas de construire ensemble un secret partagé **sans jamais transmettre la clé**. La sécurité repose sur la difficulté du **logarithme discret** dans un groupe choisi. Un observateur voit tous les échanges publics, mais ne peut pas en déduire la clé finale si les paramètres sont robustes.
+
+### 1.3 DH ne chiffre pas
+
+DH ne chiffre pas directement les données. Il produit une clé symétrique partagée (appelée souvent`K`). Cette clé est ensuite utilisée avec un algorithme de chiffrement symétrique et un autre mode d’authentification (ex. AES‑GCM) pour protéger confidentialité et intégrité.
