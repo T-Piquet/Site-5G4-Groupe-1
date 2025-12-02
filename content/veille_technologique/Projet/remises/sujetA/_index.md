@@ -1,13 +1,13 @@
 +++
-title = "Hiérarchie mémoire"
+title = "Cryptographie"
 weight = 1
 [params]
-  author = 'Thomas Piquet'
+  author = 'Yuan Dietrich Koaunda'
 +++
 
-> [!info] 
+> [!info]
 > Description du projet et de l'equipe.
 
-## La hiérarchie mémoire dans les microprocesseur généraliste.
+## L’échange de clés Diffie–Hellman en cryptographie moderne.
 
-Par Thomas Piquet.
+Par Yuan Dietrich Kouanda
