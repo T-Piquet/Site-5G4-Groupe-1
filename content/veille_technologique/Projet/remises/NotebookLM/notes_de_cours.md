@@ -9,4 +9,11 @@ NotebookLM est un outil de recherche et de prise de notes créé par Google. Il 
 
 ### Différence et similarité
 
-La différence réside dans les sources informations. Notebook LM fournit des réponses basées uniquement sur les documents fournis, donc les reponse sont liée a votre contenus seulement. Il est est plus facile de vérifier que des informations venu de place différente. ChatGPT donne les informations par rapport à de vaste données d'entrainement internes.
+La différence réside dans les sources d’informations. NotebookLM fournit des réponses basées uniquement sur les documents fournis par l’utilisateur. Les réponses sont donc liées à votre contenu seulement. Cela rend la vérification des informations plus simple.
+De son côté, ChatGPT utilise de vastes données d’entraînement internes. Cela lui offre plus de liberté et un champ de connaissances plus large, mais il peut parfois générer des informations incorrectes.
+
+Même si les deux utilisent une IA avancée, leurs applications sont différentes. NotebookLM est un outil d’analyse destiné aux chercheurs, étudiants et professionnels qui ont besoin de comprendre en profondeur des documents spécifiques.
+ChatGPT, quant à lui, est un outil généraliste, performant pour les tâches créatives, doté de vastes connaissances et d’une flexibilité conversationnelle.
+
+De plus, ChatGPT a introduit une fonctionnalité appelée “Projets”, qui permet aux utilisateurs de créer des collections de fichiers pertinents pour obtenir des conversations plus contextualisées. Cette évolution rapproche certaines fonctionnalités de celles de NotebookLM, tout en conservant l’identité principale de ChatGPT : un assistant polyvalent.
+![alt text](<Capture d’écran 2025-12-02 095339.png>) ![alt text](image.png)
