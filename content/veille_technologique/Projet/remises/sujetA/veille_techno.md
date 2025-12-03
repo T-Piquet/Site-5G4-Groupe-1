@@ -152,3 +152,63 @@ Pour rédiger les notes de cours sur Go, j'ai sélectionné les sources suivante
 - **Diversité :** Mélange de documentation, tutoriels et exemples pratiques
 
 ---
+
+## Sources réseaux sociaux et chaînes YouTube
+
+### Chaînes YouTube recommandées
+
+1. **JustForFunc: Programming in Go**
+   - **Créateur :** Francesc Campoy (ancien développeur Go chez Google)
+   - **Contenu :** Tutoriels avancés, deep dives techniques
+   - **Pourquoi :** Expertise reconnue, contenu technique de qualité
+   - **Lien :** https://www.youtube.com/c/justforfunc
+
+2. **Tech With Tim - Go Tutorials**
+   - **Créateur :** Tim (développeur indépendant)
+   - **Contenu :** Tutoriels pour débutants, projets pratiques
+   - **Pourquoi :** Approche pédagogique claire, bon pour l'apprentissage
+   - **Lien :** https://www.youtube.com/@TechWithTim
+
+3. **GopherCon**
+   - **Créateur :** Conférence officielle Go
+   - **Contenu :** Présentations de la communauté, cas d'utilisation réels
+   - **Pourquoi :** Source officielle, contenu de qualité professionnelle
+   - **Lien :** https://www.youtube.com/c/GopherAcademy
+
+### Comptes Twitter/X à suivre
+
+1. **@golang**
+   - Compte officiel du langage Go
+   - Annonces, nouvelles versions, événements
+   - **Pourquoi :** Source officielle, informations fiables
+
+2. **@francesc** (Francesc Campoy)
+   - Expert Go, ancien développeur Google
+   - Partage d'astuces et bonnes pratiques
+   - **Pourquoi :** Expertise reconnue, contenu technique
+
+3. **@_rsc** (Russ Cox)
+   - Membre de l'équipe Go core, chercheur
+   - Discussions techniques approfondies
+   - **Pourquoi :** Source primaire, insights sur le design du langage
+
+### Communautés et forums
+
+1. **r/golang** (Reddit)
+   - Communauté active de développeurs Go
+   - Discussions, questions, partage de projets
+   - **Pourquoi :** Diversité d'opinions, cas d'utilisation variés
+
+2. **Go Forum** (forum.golangbridge.org)
+   - Forum communautaire officieux
+   - Entraide et discussions techniques
+   - **Pourquoi :** Communauté bienveillante, bon pour apprendre
+
+### Critères de sélection
+
+- **Pas seulement des relais commerciaux :** Focus sur des développeurs indépendants et des experts techniques plutôt que des comptes purement promotionnels
+- **Diversité de contenu :** Mélange de tutoriels, discussions techniques et actualités
+- **Qualité pédagogique :** Sources adaptées à l'apprentissage
+- **Actualité :** Comptes actifs avec contenu récent
+
+---
