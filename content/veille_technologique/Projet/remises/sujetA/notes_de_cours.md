@@ -21,6 +21,26 @@ Avant de parler de distribution de clés, rappelons l’outil qui consomme ces c
 - **Algorithme** : AES (Advanced Encryption Standard) travaille sur des blocs de 128 bits en enchaînant des tours de substitutions et permutations
 - **Tailles de clé** : 128, 192 ou 256 bits (AES‑128, AES‑192, AES‑256). Plus la clé est longue, plus elle résiste à la force brute.
 
+**Exemple Chiffrement**  
+Clé : `00112233445566778899aabbccddeeff` (128 bits)  
+IV : `0f1e2d3c4b5a6978b6a5c4d2` (96 bits)  
+Message : `Bonjour AES !`
+
+```python
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
+key = bytes.fromhex("00112233445566778899aabbccddeeff")  # clé AES-128 (128 bits)
+iv = bytes.fromhex("0f1e2d3c4b5a6978b6a5c4d2")  # valeur initiale aléatoire qui sert à “démarrer” le chiffrement
+msg = b"Bonjour AES !"  # message en clair à chiffrer
+
+aes = AESGCM(key)
+cipher = aes.encrypt(iv, msg, None)  # chiffre + ajoute une étiquette d'intégrité
+plain = aes.decrypt(iv, cipher, None)
+
+print("Chiffré (hex) :", cipher.hex())
+print("Déchiffré     :", plain.decode())
+```
+
 ## 1. Pourquoi un échange de clés ?
 
 ### 1.1 Le problème de la distribution de clés
