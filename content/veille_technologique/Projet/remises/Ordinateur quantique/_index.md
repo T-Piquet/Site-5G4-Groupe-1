@@ -2,7 +2,7 @@
 title = "Ordi quantique"
 weight = 1
 [params]
-  author = 'Samuel Nepveu'
+  author = 'Samuel Nepveu, Lucas Pomerleau'
 +++
 
 > [!info] 
@@ -10,4 +10,4 @@ weight = 1
 
 ## Les ordinateurs quantique en général.
 
-Par Samuel Nepveu.
+Par Samuel Nepveu, Lucas Pomerleau
