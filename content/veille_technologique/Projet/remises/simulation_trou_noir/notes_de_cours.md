@@ -10,7 +10,7 @@ weight = 3
 ## 1. Introduction
 (Texte…)
 
-## 2. Concepts physiques
+## 2. Concepts physiquess
 ### 2.1 Horizon des événements
 ### 2.2 Singularité
 ### 2.3 Géodésiques
