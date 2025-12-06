@@ -97,7 +97,6 @@ L'**horizon des événements** est une notion essentielle pour comprendre ce qui
 
 Cette frontière est comme un “point de non-retour”. À l’intérieur de cette surface, la courbure de l’espace-temps est tellement forte que la **vitesse de libération** (la vitesse minimale nécessaire pour s’éloigner à l’infini) serait plus grande que la **vitesse de la lumière**, ce qui est interdit par les lois de la physique actuelles.
 
-![Vue schématique d’un trou noir avec son horizon des événements](/Pictures/horizon1.png)
 
 Pour un trou noir idéal, non en rotation, la distance correspondant à l’horizon des événements est liée à la masse du trou noir par le **rayon de Schwarzschild** (un rayon caractéristique qui dépend de la masse). Tout ce qui franchit cette frontière est irrémédiablement perdu pour l’Univers extérieur.
 
