@@ -331,8 +331,22 @@ glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB,
 **Important** : OpenGL ne fait **pas** la simulation physique. Il sert uniquement à afficher l'image calculée par votre programme C++. Tous les calculs de trajectoires des rayons lumineux, de courbure de l'espace-temps et de déviation gravitationnelle doivent être effectués dans votre code C++ avant l'affichage.
 
 ## 5. Limites du modèle
+Notre simulation pédagogique utilise plusieurs approximations nécessaires pour la rendre accessible aux étudiants débutants.
 
+**Simplifications physiques :** Nous travaillons avec un trou noir statique (non rotatif), ignorant ainsi les effets complexes de la métrique de Kerr et du frame dragging. Notre modèle utilise une simple loi en 1/r² plutôt que les équations complètes de la métrique de Schwarzschild, et ne tient pas compte d'effets relativistes avancés comme le décalage gravitationnel vers le rouge complet.
+
+**Approximations numériques :** L'intégration des trajectoires lumineuses utilise des méthodes simples (comme Euler) plutôt que des solveurs différentiels précis. Cela peut introduire des erreurs cumulatives, surtout pour les rayons passant très près de l'horizon. De plus, nous limitons le nombre d'itérations pour des raisons de performance, ce qui peut affecter la précision des trajectoires longues.
+
+**Limitations techniques :** Selon l'implémentation choisie, les calculs peuvent être effectués sur CPU (plus accessible pédagogiquement mais plus lent) ou via des shaders GPU (plus rapide mais plus complexe à comprendre). Dans les deux cas, la résolution et la complexité sont limitées par les capacités matérielles.
+
+**Perspective pédagogique :** Ces simplifications sont délibérées. Elles permettent de se concentrer sur les concepts fondamentaux (horizon, courbure, déviation lumineuse) sans être submergé par la complexité mathématique de la relativité générale complète. Notre objectif n'est pas la précision scientifique absolue, mais plutôt de fournir une visualisation intuitive et éducative des phénomènes clés associés aux trous noirs.
+
+---
 ## 6. Conclusion
+
+Cette introduction montre qu'il est possible de créer une visualisation pédagogique d'un trou noir en C++ en combinant des concepts physiques fondamentaux avec des techniques de programmation accessibles. En partant des principes de la relativité générale (courbure, horizon, géodésiques) et en les traduisant en algorithmes simples, nous obtenons une simulation qui capture l'essentiel des effets visuels d'un trou noir.
+
+Malgré ses approximations, ce projet sert de base solide pour explorer davantage l'astrophysique numérique et démontre comment la programmation peut rendre visibles des phénomènes autrement difficiles à imaginer.
 
 ## 7. Sources
 
