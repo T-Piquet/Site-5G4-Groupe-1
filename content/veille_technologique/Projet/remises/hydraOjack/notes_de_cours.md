@@ -78,7 +78,7 @@ Une **source** est un flux video de base a partir duquel Hydra construit une ima
 | `noise()`       | Produit une texture organique aleatoire, comme des nuages. |
 | `shape()`       | Cree une forme geometrique (cercle, triangle, polygone). |
 | `gradient()`    | Genere un degrade de couleurs anime. |
-| `src(o0)`       | Reutilise le contenu d’un buffer pour creer du feedback. |
+| `src(o0)`       | Reutilise le contenu d'un buffer pour creer du feedback. |
 | `camera()`      | Utilise la webcam comme source video. |
 
 
@@ -136,7 +136,7 @@ Hydra est simplement un traducteur !
 
 3- Hydra traduit tout ca pour la carte graphique, qui elle ne comprend que des maths compliquees.
 
-4- La carte graphique (via WebGL) dessine l'image a l’ecran.
+4- La carte graphique (via WebGL) dessine l'image a l'ecran.
 
 5- Ce processus recommence 60x par seconde, ce qui donne une animation fluide.
 
@@ -166,44 +166,122 @@ Ces sources constituent la base de Hydra. Les sections suivantes (8 et 9) presen
 ---
 
 # 8. Transformations visuelles
-- rotate(), scale(), pixelate(), kaleid(), invert(), posterize()
-- Explication des parametres
-- Exemple d’utilisation concrete
+Les **transformations** modifient une **source** pour lui donner un effet visuel particulier : rotation, zoom, effet kaleidoscope...
+
+| Transformation | Description |
+|----------------|-------------|
+| `rotate(angle)` | Fait tourner l'image. Plus l'angle augmente, plus la rotation est rapide. |
+| `scale(valeur)` | Agrandit ou retrecit l'image. Utile pour zoomer ou creer des effets de pulsation. |
+| `pixelate(x, y)` | Rend l'image pixelisee pour un effet rétro ou stylise. |
+| `kaleid(n)` | Cree un effet de kaléidoscope avec *n* repetitions. Tres utilise en art generatif. |
+| `invert()` | Inverse les couleurs (négatif). |
+| `posterize(n)` | Reduit le nombre de couleurs, donnant un effet cartoon. |
+
+Exemple :
+```js
+osc(20).kaleid(6).scale(0.5).invert().out()
+```
 
 ---
 
 # 9. Operations entre sources
-- add(), mult(), blend(), diff(), mask()
-- Combinaison de couches
-- Melanges complexes pour creer des visuels originaux
+Hydra permet de melanger plusieurs images ensemble. Ces operations creent des visuels complexes en combinant les couches.
+
+| Operation | Description |
+|----------|-------------|
+| `add(src)` | Additionne deux images. Rend le resultat plus lumineux et plus dense. |
+| `mult(src)` | Multiplie les couleurs pixel par pixel. Donne un effet d'ombre ou de texture. |
+| `blend(src, amount)` | Melange deux sources selon un pourcentage (0 = rien, 1 = totalement la seconde). |
+| `diff(src)` | Affiche les differences entre deux images, creant un effet de contours ou de glitch. |
+| `mask(src)` | Utilise une image comme masque pour révéler ou cacher certaines zones. |
+
+Exemple :
+```js
+osc(10).add(noise(3)).blend(shape(3), 0.3).out()
+```
 
 ---
 
-# 10. Feedback et buffers (element central)
-- Qu’est-ce qu’un buffer ?
-- Comment fonctionne src(o0) ?
-- Creation de boucles retroactives
-- Exemples visuels impressionnants
+# 10. Feedback et buffers
+Comme aborde dans la section 5, le feedback est super important. Ce derniere permet de reutiliser une image pour la deformer d'avantage. C'est grace a cela qu'il est possible de creer des spirales, des tunnels ou des effets infinis caracteristique de cette technologie.
 
 ---
 
 # 11. Interaction en temps reel
-- time → animation automatique
-- mouse.x / mouse.y → interaction directe
-- audio (optionnel) → reactivite sonore
-- Exemples pratiques
+Hydra permet de creer des visuels qui reagissent. Au temps, a votre souris ou meme a l'audio. C'est ce genre d'interactions qui rendent vos creations encore plus vivantes !
+
+| Interaction | Description |
+|------------|-------------|
+| `time` | Variable qui augmente en continu. Permet d'animer automatiquement les effets (rotation, couleur, frequence). |
+| `mouse.x` / `mouse.y` | Coordonnees de la souris. Elles permettent de controler la rotation, la taille ou la couleur du visuel en bougeant simplement la souris. |
+| Audio | Avec des extensions, Hydra peut reagir au son. Les basses, les aigus et d'autres facteurs sonores peuvent influencer les formes et couleurs. |
+
+Exemple d'une rotation controlee par votre curseur :
+```js
+osc(10, 0.1, 1)
+    .rotate(() => mouse.x * 0.005)
+    .out()
+```
+Voici un autre exemple grace a l'interaction de temps :
+```js
+shape(67)
+    .scale(() => 0.5 + 0.2 * Math.sin(time))
+    .out()
+```
+*testez les ;)*
+
 
 ---
 
 # 12. Exemples de compositions Hydra (code explique)
-- Exemple simple
-- Exemple avance
-- Exemple utilisant feedback
-- Exemple interactif
+## Exemple simple
+```js
+osc(8, 0.1, 1)
+.out()
+```
+- `osc(8, 0.1, 1)` cree un oscillateur -> une serie de lignes ondulees
+- `8` -> c'est la frequence, le nombre de lignes visibles
+- `0.1` -> c'est la vitesse du mouvement de vague
+- `1` -> c'est l'intensite
+- `.out()` -> c'est l'affichage du resultat
+## Exemple avance
+```js
+osc(20, 0.05)
+    .kaleid(6)
+    .color(1, 0.3, 0.8)
+    .out()
+```
+- `osc(20, 0.05)` -> Frequence elevee = motifi serre et l'oscillateur bouge doucement (vitesse de 0.05)
+- `kaleid(6)` -> Effet kaleidoscope de 6 miroirs
+- `color(1, 0.3, 0.8)` -> RGB, rose
+## Exemple utilisant feedback
+```js
+osc(10, 0.1, 1).out(o0)
 
+src(o0)
+    .rotate(0.03)
+    .scale(1.01)
+    .out(o0)
+```
+- `osc(10, 0.1, 1)` -> l'oscillateur est envoye dans le buffer o0
+- `src(o0)` -> renvoie l'image precedente
+- `rotate(0.03)` -> fait tourner legerement l'image
+- `scale(1.01)` -> agrandit de 1% a chaque frame
+*En bref, on prend l'image precedente, on la modifie et on eccrit par-dessus*
+## Exemple interactif
+```js
+shape(4)
+    .scale(() => 0.5 + mouse.y * 0.002)
+    .rotate(() => mouse.x * 0.01)
+    .color(0.2, 1, 0.6)
+    .out()
+```
+- `shape(4)` -> 4 cotes donc un carre
+- `scale(() => 0.5 + mouse.y * 0.002)` -> la souris descend vers le bas = forme grandit
+- `rotate(() => mouse.x * 0.01)` -> en bougeant la souris sur l'axe de x la forme tourne
 ---
 
-# 13. Cas d’usage de Hydra dans l’industrie
+# 13. Cas d'usage de Hydra dans l'industrie
 Hydra donne des resultats tellement impressionnants d'un point de vue artistique voici quelques videos interessantes le demontrant !
 Ce n'est pas seulement Hydra bien entendu mais les evenements de live coding se deroulent presque tous de la meme maniere en voici quelques exemples. Il vous aideront a mieux comprendre cette *hype* du live coding et sa communaute !
 
@@ -257,29 +335,29 @@ Je vous invite a cliquer [ICI](https://hydra.ojack.xyz/docs/docs/community/) si 
 ---
 
 # 14. Forces et limites de Hydra
-Hydra est un outil puissant pour creer des visuels en temps reel, mais comme toute technologie, il presente à la fois des avantages et des contraintes. Cette section vise à comprendre ce qui rend Hydra efficace, mais aussi dans quelles situations il atteint ses limites.
+Hydra est un outil puissant pour creer des visuels en temps reel, mais comme toute technologie, il presente a la fois des avantages et des contraintes. Cette section vise a comprendre ce qui rend Hydra efficace, mais aussi dans quelles situations il atteint ses limites.
 
 ---
 
 ## 14.1 Forces techniques
 
 ### **1. Retour visuel instantane**
-Hydra affiche le rendu visuel **des qu’une ligne de code est modifiee**, sans compilation ni rechargement.  
-Cela permet une demarche d’experimentation rapide et intuitive.
+Hydra affiche le rendu visuel **des qu'une ligne de code est modifiee**, sans compilation ni rechargement.  
+Cela permet une demarche d'experimentation rapide et intuitive.
 
 ### **2. Execution GPU via WebGL**
-Même si l’utilisateur ecrit du JavaScript tres simple, Hydra transforme les operations en **shaders executes sur la carte graphique**.  
+Meme si l'utilisateur ecrit du JavaScript tres simple, Hydra transforme les operations en **shaders executes sur la carte graphique**.  
 Avantages :
 - animations tres fluides,
 - tres bonne performance,
 - rendu en temps reel, même avec des effets complexes.
 
 ### **3. Architecture modulaire et fonctionnelle**
-Le chainage d’operations (`osc().color().rotate().out()`) rend Hydra :
+Le chainage d'operations (`osc().color().rotate().out()`) rend Hydra :
 - lisible,
 - logique,
 - flexible,
-- proche de l’approche des synthetiseurs video analogiques.
+- proche de l'approche des synthetiseurs video analogiques.
 
 Chaque transformation s'applique sur la precedente, ce qui facilite la creation artistique en direct.
 
@@ -289,7 +367,7 @@ Cela en fait un outil ideal pour :
 - un enseignement,
 - les ateliers debutants ;
 - les performances improvisees ;
-- les environnements ou l’installation de logiciels est limitee.
+- les environnements ou l'installation de logiciels est limitee.
 
 ---
 
@@ -297,7 +375,7 @@ Cela en fait un outil ideal pour :
 
 ### **1. Approche experimentale**
 Hydra encourage fortement l'exploration.  
-Modifier un parametre peut produire un effet inattendu, ce qui pousse à la creativite et à la decouverte.
+Modifier un parametre peut produire un effet inattendu, ce qui pousse a la creativite et a la decouverte.
 
 ### **2. Style visuel unique**
 Hydra permet de produire facilement des visuels :
@@ -309,26 +387,26 @@ Hydra permet de produire facilement des visuels :
 Les modulations, feedbacks et oscillations creent une esthetique visuelle distincte.
 
 ### **3. Parfait pour le live-coding**
-Grâce à la mise à jour instantanee, l’artiste peut "jouer" avec l’image comme avec un instrument.  
+Grace a la mise a jour instantanee, l'artiste peut "jouer" avec l'image comme avec un instrument.  
 Hydra est tres utilise dans le mouvement **algorave** et dans les performances multimedias.
 
 ---
 
 ## 14.3 Limites techniques (navigateur)
 
-### **1. Dependance à WebGL**
+### **1. Dependance a WebGL**
 Hydra repose entierement sur [WebGL](#webgl), ce qui implique :
 - limitations au niveau des textures ;
 - restrictions selon la carte graphique ;
 - compatibilite variable selon les navigateurs.
 
-### **2. Performances variables selon l’appareil**
+### **2. Performances variables selon l'appareil**
 - Sur un PC recent → rendu fluide.  
 - Sur un vieux portable → baisse importante de FPS.  
 - Sur telephone → parfois incompatible ou instable.
 
 ### **3. Pas ideal pour des pipelines professionnels**
-Hydra n’est pas un outil de production comme :
+Hydra n'est pas un outil de production comme :
 - **TouchDesigner**
 - **Unreal Engine**
 - **After Effects**
@@ -339,12 +417,12 @@ Des que le projet devient complexe ou doit être exporte, Hydra atteint rapideme
 
 ## 14.4 Complexite des shaders : abstraite mais non contrôlee
 
-Hydra masque toute la complexite de **GLSL**, ce qui est à la fois :
+Hydra masque toute la complexite de **GLSL**, ce qui est a la fois :
 - un enorme avantage pour les debutants,
 - une limite pour les utilisateurs avances.
 
 ### **Avantage : simplicite**
-L’utilisateur n’a pas besoin de comprendre :
+L'utilisateur n'a pas besoin de comprendre :
 - matrices,
 - buffers memoire,
 - compilation GLSL,
@@ -352,20 +430,20 @@ L’utilisateur n’a pas besoin de comprendre :
 
 ### **Inconvenient : manque de contrôle avance**
 Hydra ne permet pas :
-- d’ecrire ses propres shaders personnalises ;
-- d’optimiser manuellement la pipeline graphique ;
-- d’acceder à toutes les capacites de WebGL.
+- d'ecrire ses propres shaders personnalises ;
+- d'optimiser manuellement la pipeline graphique ;
+- d'acceder a toutes les capacites de WebGL.
 
-L’outil reste donc volontairement abstrait, ce qui le rend simple mais moins flexible que d’autres environnements professionnels.
+L'outil reste donc volontairement abstrait, ce qui le rend simple mais moins flexible que d'autres environnements professionnels.
 
 ---
 
 ## **Resume rapide**
 
 **Forces :**
-- Tres rapide à experimenter  
+- Tres rapide a experimenter  
 - Fonctionne sur GPU  
-- Accessible à tous  
+- Accessible a tous  
 - Excellent pour le live-coding  
 - Esthetique visuelle forte  
 
@@ -378,9 +456,11 @@ L’outil reste donc volontairement abstrait, ce qui le rend simple mais moins f
 ---
 
 # 15. Conclusion
-- Synthese
-- Pourquoi Hydra est pertinent dans le paysage actuel
-- Ce que l'etudiant devrait retenir
+En conclusion, Hydra vous permet de generer des visuels impressionnants et originaux dans votre navigateur. Grace a son architecture modulaire et sa syntaxe tres simple, cette technologie est extremement accessible. En quelques lignes simples il est possible de creer des animations complexes et interactives !
+
+Hydra est particulierement pertinent dans le monde de l'art generatif et la monte de cette tendance dans les performances audiovisuelles ainsi que la creation numerique pour tous. Sans installation, Hydra est accessible autant pour les enseignants, les ateliers stimulants ou pour des artistes qui souhaitent experimenter sans se casser la tete. 
+
+Au final, Hydra n'est pas seulement un outil de programmation, c'est une maniere d'explorer la creativite a travers le code. Comprendre les differentes combinaisons et les transformations afin de produire des compositions impressionnantes. Grace a Hydra, de Olivia Jack, le code devient un instrument et chaque ligne ouvre la porte a une experience visuelle completement differente.
 
 ---
 
@@ -398,7 +478,7 @@ L’outil reste donc volontairement abstrait, ce qui le rend simple mais moins f
 WebGL est une API graphique pour le navigateur qui permet de dessiner en 2D/3D en utilisant la carte graphique (GPU). Hydra utilise WebGL pour executer ses shaders et afficher les visuels en temps reel.
 
 ## snippets
-Un "snippet" est un petit bout de code reutilisable. Dans Hydra, les snippets sont des exemples de code pre-ecrits que l’on peut charger pour comprendre comment certaines fonctions fonctionnent.
+Un "snippet" est un petit bout de code reutilisable. Dans Hydra, les snippets sont des exemples de code pre-ecrits que l'on peut charger pour comprendre comment certaines fonctions fonctionnent.
 
 ## live-coding
 Le live-coding est une pratique ou l'on ecrit et modifie du code en temps reel pendant une performance, souvent accompagnee de musique et de visuels generes en direct.
