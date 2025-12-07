@@ -2,7 +2,7 @@
 title = "Introduction au quantique"
 weight = 2
 [params]
-  author = 'Samuel Nepveu, Lucas Pomerleau'
+  author = 'Samuel Nepveu, Lucas Pomerleau & Colin Leblanc'
 +++
 
 # Notes de cours — Ordinateur quantique
