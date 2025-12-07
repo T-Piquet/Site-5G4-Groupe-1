@@ -155,9 +155,9 @@ Ce rayon se note généralement Rs et se calcule par :
 
 ![Rayon de Schwarzschild](/Pictures/rayon.png)
 
--\(G\) : constante gravitationnelle  
+-\(G\) : constante gravitationnelle  ( G=6,674·10^-11 N·m 2 /kg 2)
  -\(M\) : masse de l’objet   
- -\(c\) : vitesse de la lumière
+ -\(c\) : vitesse de la lumière (3.0 × 10^8 m/s)
 
 plus la masse 𝑀 est grande → plus 𝑟𝑠 est grand. 
 si un objet est compressé dans un rayon plus petit que 𝑟𝑠, il devient un trou noir ; 
