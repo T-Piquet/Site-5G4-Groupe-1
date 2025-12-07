@@ -72,7 +72,26 @@ Pour avoir des informations plus précises et plus complètes, il serait préfé
 ---
 
 ## 4. Sources retenues pour les notes de cours
-(Expliquer la fiabilité, expertise scientifique, etc.)
+
+Pour élaborer nos notes de cours, nous avons sélectionné plusieurs sources pédagogiques reconnues, chacune apportant une contribution spécifique aux concepts présentés. L’introduction générale sur les trous noirs s’appuie sur les explications de la NASA , une ressource conçue pour un public étudiant et offrant une présentation claire des notions fondamentales. Pour décrire la courbure de l’espace-temps, nous avons utilisé l’article pédagogique de Sherpas, qui propose une vulgarisation structurée de la relativité générale. Les concepts de géodésiques, d’horizon des événements et de singularité proviennent d’un ensemble de sources complémentaires : les pages techniques de Wikipédia, utilisées pour clarifier les définitions, et l’article de Space.com, qui fournit une explication accessible du rôle de l’horizon des événements dans la physique des trous noirs. L’ensemble de ces sources a été retenu pour leur lisibilité, leur pertinence pédagogique et leur cohérence avec le niveau attendu dans un cours d’introduction à la physique des trous noirs.
+
+---
+
+## 5. Article :  Vivons-nous dans un trou noir ?
+
+
+**Lien :**  
+https://www.nationalgeographic.com/science/article/are-we-living-in-a-black-hole  
+
+
+Cet article publié en septembre 2025, par National Geographic, explore une hypothèse intrigante : notre univers pourrait partager plusieurs caractéristiques fondamentales avec un trou noir, au point que certains physiciens envisagent la possibilité que le cosmos soit né *à l’intérieur* d’un trou noir. ». L’article explore une idée qui paraît d’abord spéculative, mais qui permet de revisiter plusieurs notions fondamentales de la relativité générale : la singularité, l’horizon des événements et la structure globale de l’espace-temps. L’auteur, Adam Mann, résume différentes hypothèses avancées depuis les années 1970 selon lesquelles notre univers pourrait, en théorie, présenter des caractéristiques géométriques similaires à celles d’un trou noir. Il met en lumière que le cosmos possède lui aussi un horizon — la limite au-delà de laquelle aucune lumière ne peut nous parvenir , ce qui crée un parallèle intéressant avec les trous noirs classiques observés par les astronomes.
+
+**Importance pour notre projet :**  
+Cet article est pertinent car il met en lumière plusieurs concepts physiques que nous abordons dans nos notes de cours (singularité, horizon, structure de l’espace-temps). Il montre aussi que la modélisation des trous noirs reste un champ de recherche actif, où de nouvelles théories émergent régulièrement. Même si notre simulation en C++ reste simplifiée, elle s’inscrit dans un contexte plus large où les trous noirs sont utilisés pour mieux comprendre la nature de l’univers. L’article nous aide donc à situer notre projet dans l’actualité scientifique.
+
+---
+
+## 6. Sources réseaux sociaux / YouTube
 > [!tip]- Trou noir : l’hypothèse de Stephen Hawking testée en labo | Trous noirs de labo
 > {{< youtube O4wFxNl4uWM>}}
 
@@ -90,21 +109,8 @@ Ce que j’ai aimé, c’est que ça motivate. On voit le résultat final, un re
 
 ---
 
-## 5. Article récent obligatoire
-
-– Lien  
-– Résumé  
-– Importance  
-
----
-
-## 6. Sources réseaux sociaux / YouTube
-
-(Liens + explication critique)
-
----
-
 ## 7. Synthèse
 
-(Conclusion générale)
+Cette veille technologique nous a permis de mieux comprendre les aspects théoriques, techniques et pédagogiques liés à la simulation d’un trou noir. Les ressources consultées (articles, vidéos, documents pédagogiques) nous ont offert un ensemble cohérent d’explications allant de la physique fondamentale jusqu’aux applications numériques modernes. L’article récent sélectionné montre que les trous noirs demeurent un sujet de recherche extrêmement actif, ce qui donne du contexte et de la pertinence à notre projet.
 
+Même si notre simulation en C++ repose sur un modèle simplifié, elle permet de représenter visuellement des phénomènes réels liés à la courbure de l’espace-temps. Notre veille fournit ainsi une base solide pour rédiger des notes de cours, concevoir un atelier clair et préparer une démonstration cohérente en classe.
