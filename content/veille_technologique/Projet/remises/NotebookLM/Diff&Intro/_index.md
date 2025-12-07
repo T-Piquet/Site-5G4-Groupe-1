@@ -72,3 +72,9 @@ Exemples de la vie de tous les jours.
 ### Utilisation cours Technologie émergentes des applications
 
 NotebookLM peut aussi nous aider dans notre cours de technologies émergentes des applications, surtout en C++ et Docker. En C++, on doit comprendre des notions complexes comme les pointeurs, l’allocation dynamique ou la programmation orientée objet. En important les notes de cours du prof dans NotebookLM, l’outil peut rendre les explications plus faciles et simples, ce qui permet de mieux comprendre le langage et d’étudier plus efficacement avant l'examen. On a vu que les commandes, la configuration des conteneurs ou l’écriture d’un Dockerfile peuvent devenir difficiles à retenir. NotebookLM peut générer des cheat sheets pour nous aider à réviser plus vite. Pour le Machine Learning, il y avait beaucoup de mots et de concepts compliqués à comprendre. NotebookLM aurait pu simplifier ces notions difficiles et les expliquer avec des exemples clairs. Pour un étudiant qui a de la difficulté à apprendre à cause de gros documents et du langage technique, NotebookLM peut devenir une sorte de tuteur personnel, toujours disponible pour reformuler, résumer et répondre aux questions en lien avec le cours.
+
+### Source
+- https://www.datacamp.com/fr/tutorial/notebooklm
+- https://www.byteplus.com/en/topic/559991?title=google-notebook-lm-vs-chatgpt-a-comparison
+- https://www.codecademy.com/article/how-to-use-notebooklm
+- https://www.numerama.com/tech/1932189-notebooklm-cest-quoi-voici-loutil-secret-de-google-en-intelligence-artificielle.html
