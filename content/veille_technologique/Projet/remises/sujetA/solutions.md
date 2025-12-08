@@ -207,3 +207,33 @@ func main() {
 }
 
 ```
+
+## Question 7
+```Go
+package main
+import "fmt"
+import "math/rand"
+
+func main() {
+    nombre := rand.Intn(100) + 1
+    var devine int
+    essais := 0
+
+    fmt.Println("Devinez le nombre entre 1 et 100")
+
+    for {
+        fmt.Print("Entrez votre réponse : ")
+        fmt.Scan(&devine)
+        essais++
+
+        if devine < nombre {
+            fmt.Println("Plus grand")
+        } else if devine > nombre {
+            fmt.Println("Plus petit")
+        } else {
+            fmt.Printf("Vous avez trouvé le nombre %d en %d essais \n", nombre, essais)
+            break
+        }
+    }
+}
+```
