@@ -60,6 +60,7 @@ _start:
 ## La concurrence : le cœur de Go
 
 La gestion de la concurrence est probablement l’aspect le plus innovant et distinctif de Go. Alors que les threads traditionnels peuvent être lourds et difficiles à synchroniser, les goroutines de Go sont très légères et permettent de lancer des milliers de tâches concurrentes en quelques lignes de code. Leur fonctionnement repose sur un modèle appelé CSP (Communicating Sequential Processes), qui encourage la communication sécurisée entre goroutines via des canaux. Grâce à cela, il devient beaucoup plus facile de programmer des serveurs web, des systèmes d’analyse en temps réel ou des microservices capables de traiter simultanément de nombreuses requêtes sans sacrifier les performances.
+![alt text](/images/CSP.jpg)
 
 ## Compagnie utilisant GO
 ![alt text](/images/GoCampagnie.png)
@@ -135,7 +136,7 @@ Go est un langage statiquement typé, ce qui veut dire que le type des variables
 
 ### Déclaration de variables
 
-l existe plusieurs façons de déclarer des variables en Go.
+Il existe plusieurs façons de déclarer des variables en Go.
 
 ##### Déclaration classique
 
@@ -293,11 +294,11 @@ if err != nil {
     fmt.Println("Résultat :", resultat)
 }
 ```
-Si la fonction ne retourne rien, on utilise simplement :
+Voici le rendu final :
 ``` 
-func AfficherMessage(msg string) {
-    fmt.Println(msg)
-}
+Résultat : 5
+Erreur : division par zéro
+
 
 ```
 ### Paramètres nommés et valeurs de retour nommées
@@ -319,6 +320,18 @@ En Go, les paramètres sont passés par valeur.
 Cela signifie que la fonction reçoit une copie des arguments.
 Pour modifier une variable en dehors de la fonction, on utilise un pointeur :
 
+Go possède des pointeurs, car ils permettent :
+
+- de modifier une variable depuis une fonction,
+
+- d’optimiser la mémoire,
+
+- d’éviter de copier de grandes structures,
+
+- et de créer des méthodes efficaces sur les structs.
+
+Mais Go ne permet pas l’arithmétique des pointeurs, ce qui évite les erreurs dangereuses (comme en C).
+
 ``` 
 func Incrementer(x *int) {
     *x = *x + 1
@@ -334,7 +347,7 @@ func main() {
 ### Fonctions anonymes et closures
 
 On peut aussi définir des fonctions sans nom, qu’on appelle “fonctions anonymes” :
-``` 
+``` go
 func main() {
     saluer := func(nom string) {
         fmt.Println("Bonjour", nom)
@@ -344,110 +357,18 @@ func main() {
 }
 
 ```
-Une closure est une fonction anonyme qui capture des variables extérieures :
-``` 
-func Compteur() func() int {
-    x := 0
-    return func() int {
-        x++
-        return x
-    }
-}
 
-func main() {
-    c := Compteur()
-    fmt.Println(c()) // 1
-    fmt.Println(c()) // 2
-    fmt.Println(c()) // 3
-}
-```
-Ici, la fonction interne garde en mémoire la variable x même après la fin de Compteur().
 
-### Exemple complet
-``` 
-package main
-
-import (
-    "fmt"
-)
-
-// Fonction qui calcule la somme de deux entiers
-func Somme(a, b int) int {
-    return a + b
-}
-
-// Fonction qui retourne le minimum et le maximum d'un slice
-func MinMax(valeurs []int) (min int, max int) {
-    if len(valeurs) == 0 {
-        return 0, 0
-    }
-    min, max = valeurs[0], valeurs[0]
-    for _, v := range valeurs {
-        if v < min {
-            min = v
-        }
-        if v > max {
-            max = v
-        }
-    }
-    return
-}
-
-func main() {
-    fmt.Println("Somme :", Somme(3, 4))
-
-    nombres := []int{5, 2, 9, 1, 7}
-    min, max := MinMax(nombres)
-    fmt.Println("Min :", min, "Max :", max)
-}
-```
-
-## Les interfaces en Go
-
-Les interfaces sont un concept central du langage Go.
-Elles permettent de définir un comportement plutôt qu’une structure.
-Une interface contient uniquement des méthodes, sans implémentation.
-
-##### Exemple simple
-``` 
-type Parlant interface {
-    Parler() string
-}
-
-type Personne struct {
-    Nom string
-}
-
-func (p Personne) Parler() string {
-    return "Bonjour, je m'appelle " + p.Nom
-}
-
-```
-Ici, Personne **implémente automatiquement** l’interface Parlant parce qu’elle possède une méthode Parler().
-
-**Pas besoin d’un mot-clé** implements
-→ Contrairement à Java, TypeScript, C#, Rust, etc.
-
-###### **Pourquoi c’est important ?**
-
-- Permet un encapsulation très légère
-
-- Favorise le polymorphisme sans héritage
-
-- Évite les hiérarchies de classes compliquées
-
-- Très utile pour les tests (mocking facile)
 
 ##### **Comment Go se différencie des autres langages ?**
+| Langage       | Fonctionnement                                                                                 | Différence par rapport à Go                                                                                                                           |
+| ------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Java / C#** | Les classes doivent déclarer explicitement qu’elles implémentent une interface (`implements`). | Go n’a pas d’héritage et **pas de mot-clé**. L’implémentation est **implicite** : si la méthode existe, l’interface est considérée comme implémentée. |
+| **Python**    | Utilise le *Duck Typing* au moment de l’exécution.                                             | Go utilise un *Duck Typing à la compilation*, donc **plus rapide** et **plus sûr** (erreurs détectées avant l’exécution).                             |
+| **Rust**      | Utilise des *traits*, puissants mais complexes, souvent combinés avec les génériques.          | Go a un système d’interfaces **plus simple**, sans ownership, sans contraintes avancées.                                                              |
+| **C++**       | Utilise des classes virtuelles dans une hiérarchie d’héritage parfois lourde.                  | Go n’a pas de classes ni d’héritage. Les interfaces sont **légères et indépendantes** des structs.                                                    
 
-| Langage       | Fonctionnement                       | Différence par rapport à Go                                           |
-| ------------- | ------------------------------------ | --------------------------------------------------------------------- |
-| **Java / C#** | Interfaces explicites (`implements`) | Go n’a **pas d’héritage**, implementation **implicite**               |
-| **Python**    | Duck typing runtime                  | Go a un **duck typing à compilation** : rapide et sûr                 |
-| **Rust**      | Traits                               | Très similaire, mais Rust est plus complexe (génériques obligatoires) |
-| **C++**       | Classes virtuelles                   | Plus lourd, lié aux `class`, pas simple comme Go                      |
-
-Go = interfaces minimalistes, implicites, et faciles à utiliser.
+Go = interfaces minimalistes, implicites, faciles à utiliser, et vérifiées à la compilation.
 
 ## La concurrence : goroutines & channels
 
@@ -471,26 +392,74 @@ Caractéristiques :
 
 Vous pouvez lancer **des milliers** de goroutines sans problème.
 
-#### Les channels : communiquer en sécurité
 
-Les channels permettent de communiquer entre goroutines :
-``` 
-c := make(chan int)
+### Les interfaces en Go
 
-go func() {
-    c <- 10
-}()
+Une interface en Go sert à définir un comportement.
+Si une struct possède la méthode demandée, elle **implémente automatiquement** l’interface, sans mot-clé particulier.
 
-val := <-c
-fmt.Println(val)
+---
+
+#### Exemple très simple
+
+**1. Définir une interface :**
+
+```go
+type Parlant interface {
+    Parler() string
+}
+```
+
+Cette interface dit :
+
+> « Tout type qui possède une méthode `Parler()` est considéré comme un Parlant. »
+
+---
+
+**2. Une struct qui correspond à l’interface :**
+
+```go
+type Personne struct {
+    Nom string
+}
+
+func (p Personne) Parler() string {
+    return "Bonjour, je m'appelle " + p.Nom
+}
+```
+
+---
+
+**3. Utilisation de l’interface :**
+
+```go
+func main() {
+    var p Parlant = Personne{"Alex"}
+    fmt.Println(p.Parler())
+}
+```
+
+**Affichage :**
 
 ```
-Avantages :
+Bonjour, je m'appelle Alex
+```
 
-- synchronisation simple
+---
 
-- évite les verrous (mutex)
+#### Résumé
 
-- pensée “communication-first” plutôt que “mémoire partagée”
+* Une interface décrit une ou plusieurs méthodes.
+* Une struct l’implémente automatiquement si elle possède ces méthodes.
+* Pas besoin d’écrire `implements` : Go le fait de manière implicite.
 
-**Go = parallélisme simple, performant, et accessible.**
+---
+
+### Conclusion générale sur le langage Go
+
+Go est un langage simple, rapide et efficace, conçu pour aider les développeurs à créer facilement des applications modernes. Il repose sur des principes clairs : une syntaxe minimaliste, des outils intégrés et une gestion de la concurrence extrêmement puissante grâce aux goroutines. Go évite la complexité inutile tout en offrant d’excellentes performances, ce qui en fait un langage agréable à apprendre et à utiliser. Aujourd’hui, Go est largement adopté dans les domaines du cloud, du DevOps et des services web, car il permet de développer des programmes fiables et faciles à maintenir. En résumé, Go est un langage pratique, moderne et parfaitement adapté aux besoins actuels du développement logiciel.
+
+## Source
+- https://go.dev/
+- https://en.wikipedia.org/wiki/Go_(programming_language)
+- https://gobyexample.com/
