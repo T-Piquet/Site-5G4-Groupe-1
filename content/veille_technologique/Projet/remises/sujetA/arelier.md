@@ -63,4 +63,44 @@ Entrée utilisateur : mot = "Hello"
 Sortie : 2
 ```
 
+## Question 6
+**Compléter le code**
+
+Utilisez des structs et une interface pour compléter le code
+- Créer une interface Vehicule qui déclare la méthode ToString().
+- Créer les 3 structs : Voiture, Camion et Moto. 
+- Créer les fonctions ToString() pour chaque objet. Celle-ci retourne la marque du vehicule.
+
+**La Fonction Main**
+```Go
+func main() {
+    var v1 Vehicule = Voiture{Marque: "Ferrari"}
+    var v2 Vehicule = Camion{Marque: "Mercedes"}
+    var v3 Vehicule = Moto{Marque: "Yamaha"}
+
+    println(v1.ToString())
+    println(v2.ToString())
+    println(v3.ToString())
+}
+```
+
+## Question 7
+**Jeu : Deviner le Nombre**
+
+Créez un jeu où un nombre aléatoire entre 1 et 100 est généré. Le but pour l'utilisateur est de deviner ce nommbre.
+Après chaque réponse, le programme indique si le nombre à deviner est plus grand ou plus petit.
+Le nombre d'essaie doit être compter par le programme.
+
+**Par exemple :**
+```
+Entrez votre réponse : 11
+Plus grand
+Entrez votre réponse : 20
+Plus petit
+Entrez votre réponse : 15
+Plus petit
+Entrez votre réponse : 13
+Vous avez trouvé le nombre 13 en 4 essais 
+```
+
 [Solution des ateliers](https://github.com/MansouriE/GO_SOLUTIONS)
