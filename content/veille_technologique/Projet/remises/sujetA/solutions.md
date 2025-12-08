@@ -163,3 +163,77 @@ func main() {
     fmt.Printf("Nombre de voyelles : %d\n", compterVoyelles(mot))
 }
 ```
+
+## Question 6
+```Go
+package main
+
+type Vehicule interface {
+    ToString() string
+}
+
+type Voiture struct {
+    Marque string
+}
+
+type Camion struct {
+    Marque string
+}
+
+type Moto struct {
+    Marque string
+}
+
+func (v Voiture) ToString() string {
+    return "Voiture : " + v.Marque
+}
+
+func (c Camion) ToString() string {
+    return "Camion : " + c.Marque
+}
+
+func (m Moto) ToString() string {
+    return "Moto : " + m.Marque
+}
+
+func main() {
+    var v1 Vehicule = Voiture{Marque: "Ferrari"}
+    var v2 Vehicule = Camion{Marque: "Mercedes"}
+    var v3 Vehicule = Moto{Marque: "Yamaha"}
+
+    println(v1.ToString())
+    println(v2.ToString())
+    println(v3.ToString())
+}
+
+```
+
+## Question 7
+```Go
+package main
+import "fmt"
+import "math/rand"
+
+func main() {
+    nombre := rand.Intn(100) + 1
+    var devine int
+    essais := 0
+
+    fmt.Println("Devinez le nombre entre 1 et 100")
+
+    for {
+        fmt.Print("Entrez votre réponse : ")
+        fmt.Scan(&devine)
+        essais++
+
+        if devine < nombre {
+            fmt.Println("Plus grand")
+        } else if devine > nombre {
+            fmt.Println("Plus petit")
+        } else {
+            fmt.Printf("Vous avez trouvé le nombre %d en %d essais \n", nombre, essais)
+            break
+        }
+    }
+}
+```

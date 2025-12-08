@@ -57,6 +57,7 @@ Go est devenu populaire car il offre un excellent équilibre entre simplicité, 
 
 **Complétude de la réponse :**
 La réponse du LLM couvre les aspects fondamentaux de Go de manière assez complète. Elle mentionne les origines, les caractéristiques principales, les cas d'utilisation et fait des comparaisons pertinentes. Cependant, elle manque certains détails importants :
+
 - L'écosystème de packages (Go modules)
 - Les interfaces implicites (concept unique à Go)
 - Les outils intégrés (go fmt, go test, etc.)
@@ -72,6 +73,7 @@ J'ai également testé le même prompt avec GPT-4, qui a fourni une réponse sim
 La documentation officielle de Go (https://go.dev/doc/) contient toutes ces informations et bien plus. Elle est organisée de manière pédagogique et inclut des tutoriels, des guides et des références complètes. La réponse du LLM est similaire à ce qu'on trouverait dans l'introduction de la documentation officielle ou dans l'article Wikipedia sur Go.
 
 **Qualité des sources :**
+
 - Documentation officielle Go : Source primaire, très fiable
 - Wikipedia : Source secondaire, généralement fiable pour les informations factuelles
 - Articles de blog techniques : Variables selon l'auteur, nécessitent vérification
@@ -89,6 +91,7 @@ La documentation officielle de Go (https://go.dev/doc/) contient toutes ces info
 
 **Résumé :**
 Cet article explore les nouvelles fonctionnalités introduites dans Go 1.22, notamment :
+
 - Améliorations des boucles `for` avec variables de portée
 - Nouvelles fonctions dans la bibliothèque standard
 - Améliorations de performance du garbage collector
@@ -101,10 +104,12 @@ Cet article est pertinent car il montre l'évolution continue du langage et les 
 The New Stack est une publication technique reconnue qui couvre les technologies cloud et backend. Les informations sont vérifiables avec la release notes officielle de Go 1.22.
 
 **Autres articles récents consultés :**
+
 - "Why Go is Still the Best Language for Microservices" - InfoWorld (2024)
 - "Go's Growing Ecosystem: Beyond the Standard Library" - Go Blog officiel (2024)
 
 ---
+
 ## Sources choisies pour les notes de cours
 
 Pour rédiger les notes de cours sur Go, j'ai sélectionné les sources suivantes en fonction de leur fiabilité, leur actualité et leur pertinence pédagogique :
@@ -112,12 +117,14 @@ Pour rédiger les notes de cours sur Go, j'ai sélectionné les sources suivante
 ### Sources primaires
 
 1. **Documentation officielle Go** (https://go.dev/doc/)
+
    - Source la plus fiable et à jour
    - Maintenue par l'équipe Go de Google
    - Contient des tutoriels, guides et références complètes
    - **Utilisation :** Concepts fondamentaux, syntaxe, bonnes pratiques
 
 2. **Effective Go** (https://go.dev/doc/effective_go)
+
    - Guide officiel des meilleures pratiques
    - Écrit par les créateurs du langage
    - **Utilisation :** Exemples de code idiomatique, patterns recommandés
@@ -130,11 +137,13 @@ Pour rédiger les notes de cours sur Go, j'ai sélectionné les sources suivante
 ### Sources secondaires fiables
 
 4. **The Go Programming Language** (Livre - Donovan & Kernighan)
+
    - Livre de référence écrit par des experts
    - Couvre le langage en profondeur
    - **Utilisation :** Explications détaillées, exemples avancés
 
 5. **Go by Example** (https://gobyexample.com/)
+
    - Exemples de code annotés
    - Très utile pour l'apprentissage pratique
    - **Utilisation :** Exemples concrets pour chaque concept
@@ -158,12 +167,14 @@ Pour rédiger les notes de cours sur Go, j'ai sélectionné les sources suivante
 ### Chaînes YouTube recommandées
 
 1. **JustForFunc: Programming in Go**
+
    - **Créateur :** Francesc Campoy (ancien développeur Go chez Google)
    - **Contenu :** Tutoriels avancés, deep dives techniques
    - **Pourquoi :** Expertise reconnue, contenu technique de qualité
    - **Lien :** https://www.youtube.com/c/justforfunc
 
 2. **Tech With Tim - Go Tutorials**
+
    - **Créateur :** Tim (développeur indépendant)
    - **Contenu :** Tutoriels pour débutants, projets pratiques
    - **Pourquoi :** Approche pédagogique claire, bon pour l'apprentissage
@@ -178,16 +189,18 @@ Pour rédiger les notes de cours sur Go, j'ai sélectionné les sources suivante
 ### Comptes Twitter/X à suivre
 
 1. **@golang**
+
    - Compte officiel du langage Go
    - Annonces, nouvelles versions, événements
    - **Pourquoi :** Source officielle, informations fiables
 
 2. **@francesc** (Francesc Campoy)
+
    - Expert Go, ancien développeur Google
    - Partage d'astuces et bonnes pratiques
    - **Pourquoi :** Expertise reconnue, contenu technique
 
-3. **@_rsc** (Russ Cox)
+3. **@\_rsc** (Russ Cox)
    - Membre de l'équipe Go core, chercheur
    - Discussions techniques approfondies
    - **Pourquoi :** Source primaire, insights sur le design du langage
@@ -195,6 +208,7 @@ Pour rédiger les notes de cours sur Go, j'ai sélectionné les sources suivante
 ### Communautés et forums
 
 1. **r/golang** (Reddit)
+
    - Communauté active de développeurs Go
    - Discussions, questions, partage de projets
    - **Pourquoi :** Diversité d'opinions, cas d'utilisation variés
@@ -218,6 +232,7 @@ Pour rédiger les notes de cours sur Go, j'ai sélectionné les sources suivante
 ### Étendue du sujet
 
 Le sujet couvrira :
+
 - **Fondamentaux :** Syntaxe, types, fonctions, structures
 - **Concepts avancés :** Interfaces, goroutines, channels, packages
 - **Écosystème :** Outils intégrés, bibliothèque standard, modules
@@ -233,6 +248,7 @@ Le sujet couvrira :
 ### Sources de veille continue
 
 Pour maintenir une veille active sur Go, je suivrai :
+
 - Les release notes officielles (https://go.dev/doc/devel/release)
 - Le blog Go officiel (https://go.dev/blog/)
 - Les annonces sur @golang (Twitter)
