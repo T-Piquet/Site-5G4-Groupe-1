@@ -2,10 +2,10 @@
 title = "Rust"
 weight = 2
 [params]
-  author = "Nom de l'équipe"
+  author = "Jocelyn Blais-Rochon"
 +++
 
 > [!info]
-> Présentation générale de votre projet ou dossier Rust.
+> Remise de la veille technologique sur Rust créé par Jocelyn Blais-Rochon
 
-Décrivez ici le contexte et les objectifs associés à cette remise.
+Rust est un langage qui se démarque principalement par sa manière de gérer la mémoire. Contrairement à la plupart des langages modernes qui utilisent un garbage collector, Rust adopte une approche différente : une gestion de mémoire sans garbage collector, mais entièrement sécurisée et performante. Son fonctionnement s’appuie sur des règles rigoureuses mises en place dès la compilation, ce qui élimine plusieurs classes d’erreurs classiques dans des langages comme C et C++.
