@@ -1,6 +1,6 @@
 ---
 title: "Veille technologique"
-weight: 30
+weight: 1
 ---
 
 ## Recherche et préparation

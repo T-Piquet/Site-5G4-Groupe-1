@@ -1,5 +1,6 @@
 ---
 title: Atelier
+weight: 3
 ---
 
 ## To-do list en ligne de commande avec Rust
