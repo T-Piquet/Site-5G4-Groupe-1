@@ -32,7 +32,7 @@ Example: On parle(humain) dans un microphone(input) et ça transforme en texte(m
 
 ## Taux d'Erreur de Mots (TEM)
 
-La reconnaissance automatique de la parole n'est pas parfait. Le Taux d'Erreur de Mots (TEM) indique la précision du système automatique de la parole. Il compare les erreurs comme les mots omis, ajoutés et mal reconnus avec le nombre de mots prononcés. Plus que cette valeur est basse, plus la précison du système de reconnaissance automatique de la parole est élevée. Par example, si on on a un taux d'erreur de 14%, la précision de la transcription est de 86%.
+La reconnaissance automatique de la parole n'est pas parfaite. Le Taux d'Erreur de Mots (TEM) indique la précision du système automatique de la parole. Il compare les erreurs comme les mots omis, ajoutés et mal reconnus avec le nombre de mots prononcés. Plus que cette valeur est basse, plus la précison du système de reconnaissance automatique de la parole est élevée. Par example, si on on a un taux d'erreur de 14%, la précision de la transcription est de 86%.
 
 ## Source
 - https://www.ionos.fr/digitalguide/sites-internet/developpement-web/automatic-speech-recognition/

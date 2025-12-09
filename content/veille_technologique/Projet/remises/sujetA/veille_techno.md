@@ -22,3 +22,7 @@ Les défis persistent néanmoins : accents variés, bruit ambiant, chevauchement
 
 ## Discussion de la réponse
 Bien que la réponse donnée est bonne, elle n'est pas assez précise. C'est essentiellement un résumé ou une simplification de la technologie. On cite les programmes utilisés et les méthodes décrites de ceux-ci sont vagues et ne donnent pas assez de contexte. Par contre, dans le moteur de recherche (Google), quand je met le meme prompt, je recois un article de ionos fr sur qu'est-ce qu'est le ASR. Celui ci contient beaucoup plus d'informations détaillées et pertinentes, ainsi que certains supports visuels
+
+
+## Article pertinent
+Voici un bon article qui parle de ce sujet: https://www.researchgate.net/publication/318749834_Automatic_Speech_Recognition_A_Review
