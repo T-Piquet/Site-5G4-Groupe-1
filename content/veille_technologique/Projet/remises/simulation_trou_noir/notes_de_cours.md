@@ -155,25 +155,27 @@ Ce rayon se note généralement Rs et se calcule par :
 
 ![Rayon de Schwarzschild](/Pictures/rayon.png)
 
--\(G\) : constante gravitationnelle  ( G=6,674·10^-11 N·m 2 /kg 2)
- -\(M\) : masse de l’objet   
- -\(c\) : vitesse de la lumière (3.0 × 10^8 m/s)
+-\(G\) : constante gravitationnelle ( G=6,674·10^-11 N·m 2 /kg 2)
+
+-\(M\) : masse de l’objet
+
+-\(c\) : vitesse de la lumière (3.0 × 10^8 m/s)
 
 plus la masse 𝑀 est grande → plus 𝑟𝑠 est grand. 
-si un objet est compressé dans un rayon plus petit que 𝑟𝑠, il devient un trou noir ; 
-à l’intérieur de 𝑟𝑠, aucune trajectoire ne permet de remonter → c’est le "point de non-retour". 
+si un objet est compressé dans un rayon plus petit que 𝑟𝑠, il devient un trou noir ;
+à l’intérieur de 𝑟𝑠, aucune trajectoire ne permet de remonter → c’est le "point de non-retour".
 
 Dans notre simulation :
 
-• On ne travaille pas avec des mètres mais avec des pixels. 
+• On ne travaille pas avec des mètres mais avec des pixels.
 
 On utilise donc un rayon choisi, appelé : R horizon
-• Si un rayon lumineux arrive à une distance 𝑟 ≤ 𝑅 horizon: 
-• le rayon tombe dans le trou 
+• Si un rayon lumineux arrive à une distance 𝑟 ≤ 𝑅 horizon:
+• le rayon tombe dans le trou
 
 ### 3.2 Déviation des rayons lumineux 
 La lumière ne va pas en ligne droite dans un espace courbé. 
-Elle suit ce qu’on appelle une géodésique, le "chemin le plus droit possible" dans un espace qui 
+Elle suit ce qu’on appelle une géodésique, le "chemin le plus droit possible" dans un espace qui
 est déformé.
 
 ![Courbure de l’espace-temps](/Pictures/courbure.png)
@@ -206,7 +208,7 @@ Pour que la simulation tourne en C++ sans mathématiques avancées, on applique 
 approximation simple : 
 1. Chaque rayon lumineux a une direction (un vecteur). 
 2. À chaque étape, on calcule sa distance 𝑟au centre du trou noir. 
-3. Plus 𝑟est petit, plus on change la direction du rayon. 
+3. Plus 𝑟 est petit, plus on change la direction du rayon. 
 Un modèle très simple consiste à ajouter une petite courbure proportionnelle à : 
 
 ![Formule de la déviation](/Pictures/r.png) 
