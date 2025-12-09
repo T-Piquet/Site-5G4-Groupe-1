@@ -277,7 +277,7 @@ Lit tout le contenu dans une chaîne de caractères
 
 Retourne le texte → parfait pour l’envoyer à OpenGL
 
-5.2.2 Compilation d’un shader (compileShader)
+### 5.2.2 Compilation d’un shader (compileShader)
 
 ```cpp
 // --- Compilation d'un shader ---
@@ -311,7 +311,7 @@ glCompileShader : compile le shader.
 
 En cas d’erreur, on récupère et on affiche le log de compilation.
 
-5.2.3 Création du programme GPU (createProgram)
+### 5.2.3 Création du programme GPU (createProgram)
 
 ```cpp
 // --- Création du programme shader complet ---
@@ -360,8 +360,8 @@ Libère les shaders individuels (on garde le programme final).
 
 Ce program sera utilisé plus tard avec glUseProgram(program);.
 
-5.3 Caméra VR : structure CameraState et gestion clavier
-5.3.1 Structure de la “tête” VR
+## 5.3 Caméra VR : structure CameraState et gestion clavier
+### 5.3.1 Structure de la “tête” VR
 
 ```cpp
 // --- Etat de la "tête" VR (caméra) ---
@@ -378,7 +378,7 @@ yaw : orientation horizontale (gauche/droite).
 
 pitch : orientation verticale (haut/bas).
 
-5.3.2 Mise à jour de la caméra (updateCamera)
+## 5.3.2 Mise à jour de la caméra (updateCamera)
 
 ```cpp
 void updateCamera(GLFWwindow* window, CameraState& cam, float dt) {
@@ -439,7 +439,7 @@ Flèches ← → ↑ ↓ : tourner la tête
 
 dt = temps écoulé depuis la dernière frame → mouvements fluides indépendants du FPS.
 
-5.4 Initialisation d’OpenGL (GLFW + GLEW)
+## 5.4 Initialisation d’OpenGL (GLFW + GLEW)
 
 Cette partie se trouve dans le début de main().
 
@@ -495,7 +495,7 @@ glewInit() : charge les fonctions OpenGL modernes (3.3+).
 
 glEnable(GL_DEPTH_TEST) : active le z-buffer pour un rendu 3D correct.
 
-5.5 Chargement du programme shader
+## 5.5 Chargement du programme shader
 
 On utilise ici la fonction createProgram() vue plus haut.
 
@@ -517,7 +517,7 @@ Compile + link le programme GPU.
 
 En cas d’erreur, on quitte l’application proprement.
 
-5.6 Création du cube 3D et des uniforms
+## 5.6 Création du cube 3D et des uniforms
 
 ```cpp
     // --- Données cube ---
@@ -581,7 +581,7 @@ location = 0 correspond à l’attribut position dans vertex.glsl.
 
 On récupère les uniform pour les matrices model, view, proj.
 
-5.7 Boucle principale : rendu VR stéréo
+## 5.7 Boucle principale : rendu VR stéréo
 
 ```cpp
     // --- Boucle principale ---
@@ -672,7 +672,7 @@ glViewport découpe la fenêtre en deux moitiés (gauche/droite).
 
 C’est la différence entre les deux vues qui crée la profondeur stéréoscopique.
 
-5.8 Nettoyage des ressources
+## 5.8 Nettoyage des ressources
 
 ```cpp
     glDeleteBuffers(1, &vbo);

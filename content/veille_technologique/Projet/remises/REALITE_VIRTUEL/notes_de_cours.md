@@ -544,6 +544,6 @@ Article scientifique majeur montrant comment la VR est utilisée pour étudier l
 https://pmc.ncbi.nlm.nih.gov/articles/PMC6485657/
 
 
-Vergence–accommodation conflicts hinder visual performance and cause visual fatigue.
+Hoffman et al. (2008) – Vergence–Accommodation Conflict
 Article de référence expliquant comment la VR trompe le cerveau via :
 https://pmc.ncbi.nlm.nih.gov/articles/PMC2879326/
