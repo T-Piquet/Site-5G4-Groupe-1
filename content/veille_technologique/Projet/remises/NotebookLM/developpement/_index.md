@@ -61,7 +61,7 @@ Exemple :
 “pikachu est un pokemon de type ___.”
 L’IA doit deviner electrique.
 
-Dans ce cas, si on veut que notre IA puisse identifier le type de chaque pokemon avec une image on devra surement passer en mode supervision pour qu'il comprenne bien la différence entre chaque pokémon.
+Dans ce cas, si on veut que notre IA puisse identifier le type de chaque pokemon avec une image on devra  passer en mode supervision pour qu'il comprenne bien la différence entre chaque pokémon.
 Elle s’entraîne toute seule en se testant et en corrigeant ses erreurs.
 
  ![alt text](difference.png)
@@ -76,13 +76,14 @@ L’apprentissage auto-supervisé (self-supervised learning, SSL) est basé sur 
 
 ### 4. Le source-grounding
  
-Le source-grounding est un principe qui consiste à ancrer les réponses d’un modèlede langage dans des sources externes fiables plutôt que de se fier uniquement
+Le source-grounding est un principe qui consiste à ancrer les réponses d’un modèle de langage dans des sources externes fiables plutôt que de se fier uniquement
 à ses données d’entraînement.
 
 Lorsque l’utilisateur pose une question, le système fournit au LLM des informations provenant de sources contrôlées (documents, bases de données, API, graphes de connaissance),
 afin de réduire les hallucinations et d’améliorer la précision des réponses.
 
-
+Le source-grounding ne dépend pas d’une technologie unique : les informations peuvent
+être récupérées par différents mécanismes selon le type de source utilisé.
 
 ### 4.1 La séléction de données
 
@@ -97,7 +98,7 @@ Les systèmes d'IA groundée vont exploiter des informations provenant de plusie
  - contenue non structuré : documents, courriels et pages web nécessitant un traitement sémantique pour extraire les passages pertinents. 
 
 
- Pour gérer les contenues non structuré, elles vont être "filtré" par `indexation vectorielle` alors que les données structurées passent par des connecteurs API.
+ Pour gérer les contenues non structuré, elles vont être "filtré" par `indexation vectorielle` 
 
  ```txt
 L’indexation vectorielle, c’est quand la machine transforme le texte en valeurs numériques afin de
@@ -117,7 +118,7 @@ Contrairement au source-grounding général, le RAG utilise une recherche vector
 pour récupérer dynamiquement les passages les plus pertinents au moment de la requête.
 
 ### 4.3 Fonctionnement du Rag
-La requête de l’utilisateur est transformée en vecteur sémantique.
+Dans un système RAG, la requête de l’utilisateur est transformée en vecteur sémantique.
 Le système compare ce vecteur à ceux des documents stockés dans une base
 de données vectorielle afin d’identifier les passages les plus pertinents.
 Ces informations sont ensuite injectées dans le prompt du LLM pour générer la réponse.
