@@ -3,9 +3,7 @@ title = "Veille technologique Unity"
 weight = 50
 +++
 
-## Veille technologique
-
-Prompt :
+### Prompt
 
 « Explique-moi de manière détaillée ce qu’est Unity, comment il fonctionne et dans quels contextes on l’utilise. Parle des points suivants :
 
@@ -15,7 +13,7 @@ Donne une réponse structurée, technique et complète. »
 
 ---
 
-## Réponse du LLM
+### Réponse du LLM
 
 {{% expand title="Unity - Cliquez pour afficher" %}}
 
@@ -279,11 +277,12 @@ Pour un étudiant de 5e session, c'est un excellent moteur pour :
 
 {{% /expand %}}
 
-## Sources
+### Sources utilisé par le LLM
 - https://unity.com/
 - https://docs.unity3d.com/
 - https://learn.unity.com/
 
+---
 ## Analyse critique de la réponse du LLM
 
 
@@ -295,14 +294,11 @@ La réponse donnée par le LLM suit un plan qui est bien structuré. Il aborde d
 
 ChatGPT fait attention de bien suivre l’instruction d’expliquer le cours à des étudiants en informatique du cégep. Il aborde des sujets qu’il considère déjà acquis tel que certains langages de programmation ou des termes techniques (C#, ECS, pipeline, runtime, multi-plateforme) ce qui rend les notes plus légères mais complète et compréhensible.
 
-Le LLM se base sur les notions qui pense utiles pour mieux comprendre Unity au lieu de parler simplement de la théorie. Il parle des scènes, des objets de jeux et bien plus. Il prend même la peine de montrer des images du web afin qu’on puisse mieux visualiser.
+Le LLM se base sur les notions qui pense utiles pour mieux comprendre Unity au lieu de parler simplement de la théorie. Il parle des scènes, des objets de jeux et bien plus.
 
 Limites de la réponse :
 
-Le LLM répond plus ou moins de façon assez générale. Il est vrai qu’il décrit bien ce qu’est Unity, mais il ne fournit pas vraiment d’exemples concrets qu’on pourrait Integer pour bien comprendre et assimiler le sujet.
-
-Il y a des sections qui ont été passer très rapidement comme la comparaison entre les pipelines de rendu. Il pense peut-être que le sujet est déjà acquis ou qu'il juge cette partie comme non importante.
-
+Le LLM répond plus ou moins de façon assez générale. Il est vrai qu’il décrit bien ce qu’est Unity, mais il ne fournit pas vraiment d’exemples concrets qu’on pourrait Integer pour bien comprendre et assimiler le sujet. Il répond avec seulement quelques phrases sans aller en profondeur.Il y a des sections qui ont été passer très rapidement comme la comparaison entre les pipelines de rendu. Il pense peut-être que le sujet est déjà acquis ou qu'il juge cette partie comme non importante. Avec l'utilisation du LLM on peux constater qu'il fournit juste de la théorie et pas d'attributs visuels tel que des images ou des vidéos.
 Les sources utiliser peuvent potentiellement être fausse ou hors sujet. C’est un des risques d’utiliser une IA pour générer des notes sur un sujet qui nous est étranger.
 
 ---
@@ -321,14 +317,91 @@ Pour une recherche approfondit et précise il est, mieux d’opter pour un moteu
 
 ## Sources retenues pour les notes de cours
 
+{{% expand title="Cliquez pour afficher" %}}
 
-Documentation Unity : https://docs.unity3d.com  
-Unity Learn : https://learn.unity.com  
-Roadmap Unity 6 : https://unity.com/roadmap/unity-platform  
-What’s Next: Unity Engine 2025 Roadmap | Unity  
-YouTube : https://youtu.be/iqlH4okiQqg?si=gYJaFtqjdeYiQbFv
+#####  Documentation officielle Unity (principale source fiable)
+Unity Architecture (2022.3)
+https://docs.unity3d.com/2022.3/Documentation/Manual/UnityArchitecture.html
+
+GameObject API (Unity 6000.0)
+https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html
+
+Création de prefabs
+https://docs.unity3d.com/2023.2/Documentation/Manual/CreatingPrefabs.html
+
+Sprites et configuration 2D
+https://docs.unity3d.com/2022.3/Documentation/Manual/sprites-setup.html
+
+Animation / Animator / State Machines
+https://docs.unity3d.com/2022.3/Documentation/ScriptReference/Animation.html
+
+https://docs.unity3d.com/6000.0/Documentation/Manual/class-AnimatorController.html
+
+https://docs.unity3d.com/6000.2/Documentation/Manual/StateMachineTransitions.html
+
+UI : Canvas, Buttons, RectTransform
+https://docs.unity3d.com/2020.1/Documentation/Manual/UICanvas.html
+
+https://docs.unity3d.com/6000.0/Documentation/ScriptReference/RectTransform.html
+
+https://docs.unity3d.com/2022.3/Documentation/Manual/UIE-uxml-element-Button.html
+
+
+###### Justification
+Ces documents sont les plus sûrs puisque l'on y voit comment le moteur marche vraiment.
+Elles incluent les mises à jour pour les années 2022 jusqu'à 2025, ce qui est crucial pour se tenir au courant des avancées.
 
 ---
+#####  Articles pédagogiques / tutoriels techniques externes
+
+Comprendre les scenes dans Unity (bob-le-developpeur)
+https://www.bob-le-developpeur.com/notions/scenes-unity
+
+Initiation au scripting C# dans Unity
+https://voldedk.github.io/EasyLearn/csharp-scripting-unity.html
+
+Comprendre les colliders 2D
+https://studios.artanode.com/understanding-2d-colliders-in-unity/
+
+Élément Text dans Unity
+https://www.tutorialspoint.com/unity/unity_text_element.htm
+
+
+###### Justification
+Références bien connues dans les cercles francophones et anglophones.
+- Cela aide à l'apprentissage grâce à des explications plus claires que celles du manuel de base.
+- Je peux y intégrer des cas pratiques directement dans mes notes.
+
+---
+#####  Article général pour l’introduction
+
+Qu’est-ce que Unity (créativos online)
+https://fr.creativosonline.org/Qu%27est-ce-que-Unity%2C-le-moteur-de-jeu-vid%C3%A9o-le-plus-populaire-et-le-plus-polyvalent-%3F.html
+
+###### Justification
+Bon point de départ pour écrire une présentation simple du moteur.
+- Fournit un aperçu accessible, pertinent pour positionner Unity dans le secteur.
+
+---
+#####  Source algorithmique (pour la section pathfinding de la démo)
+
+Bien que le projet soit axé sur Unity, une portion mineure concerne l’algorithme A, ce qui rend une ressource spécifique appropriée.
+
+Notes de cours:
+https://generalistprogrammer.com/tutorials/a-star-pathfinding-algorithm-complete-tutorial
+
+
+Tutoriels vidéo pour la démo :
+   1. “Create a Pathfinding Visualizer in Unity!” – Board To Bits (YouTube)
+https://youtu.be/waEsGu--9P8
+   2. “A* Pathfinding Visualisation in Unity” – IHeartGameDev (YouTube)
+https://youtu.be/alU04hvz6L4
+
+Justification :
+- Ces guides facilitent la compréhension de la logique ainsi que des formules à l'algorithme employé dans la présentation Unity.
+
+
+{{% /expand %}}
 
 ## Conclusion
 
