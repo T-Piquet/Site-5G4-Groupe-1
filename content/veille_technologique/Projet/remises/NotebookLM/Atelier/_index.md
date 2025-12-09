@@ -59,16 +59,21 @@ Pour partager il faut ouvrir le Notebook à tout le monde qui on le lien vers ce
 Après avoir complété cet atelier, prenez le temps de réfléchir aux questions suivantes :
 
 1. Qualité pédagogique : Le contenu généré est-il clair et bien structuré ?
+
    Le contenu généré est clair, séparé en sections et facile à lire. NotebookLM a pu créer par lui-même cinq modules divisés par des sous-modules qui introduisent bien le langue C++ à un débutant. Chaque partie contient un titre, des explications et un résumé. L'outils nous a permis d'organiser efficacement les informations des sources que nous avons choisies. La structure est bonne, mais parfois un peu trop simple où beaucoup d'informations sont résumé en une ou deux phrases.
 
 2. Exactitude technique : Les concepts C++ sont-ils correctement expliqués ?
+
    Les explications sont bien expliquées et utilisées, car les sources sont fiables. Guru99 et LearnCPP sont deux sites qui contient beaucoup d'informations de base sur le C++, pour un niveau débutant, NotebookLM va aller chercher le contenu des catégories directement dans les deux sites qu'il a pu lire et indexer.
 
 3. Exemples de code : Les exemples fournis sont-ils pertinents et fonctionnels ?
+
    Les exemples de codes que NotebookLM nous a fournis sont assez simple et très court. Ils vont se concentrer sur la matière de la leçon et documenter la plupart des lignes de code pour expliquer le code écrit. NotebookLM ne peut pas exécuter ou tester le code qu'il a généré ce qui peut les rendre imprécis à certain moment.
 
 4. Comparaison : Comment ce cours se compare-t-il au cours C++ du site ?
+
    Parce que les deux sources utilisées sont pour un niveau débutant, le cours généré par NotebookLM est plus visé pour du monde qui n'ont aucune connaissance à la programmation, où il vont commencer à apprendre un langage pour la première fois. À l'inverse, le cours de cette session va un peu plus en profondeur sur le contenu des modules.
 
 5. Limitations : Quelles sont les limites de l'outil pour créer du contenu pédagogique ?
+
    Après l'utilisation de l'outil, on peut remarquer que l'information que nous recevons dépend des sources importées. Si la source est incomplète et non fiable, le contenu généré le sera aussi. L'outil est capable de générer du code, mais il ne peut pas l'exécuter, le tester ou détecter les erreurs d'exécution. NotebookLM organise bien le contenu, mais n'est pas le meilleur outil pour enseigner selon le niveau de l'utilisateur. Pour finir, certaines sources ne vont pas fonctionner avec NotebookLM, car ces dernières vont bloquer l'accès aux robots, ce qui inclue l'outil que nous avons utilisé.
