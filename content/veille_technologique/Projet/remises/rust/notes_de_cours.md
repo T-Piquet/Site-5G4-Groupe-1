@@ -19,10 +19,52 @@ Ces concepts représentent la base qui permet au langage d'assurer sécurité et
 
 ----
 
-## 2. Le typage en Rust
+## 2. Comparaison avec C++ pour comprendre la valeur de Rust
+
+Rust n’a pas été créé pour “remplacer C++”, mais il corrige plusieurs de ses faiblesses.
+
+Voici un portrait simple :
+
+| Problème | C++ | Rust |
+| :-------- | :---: | :----: |
+| Pointeurs non initialisés | Oui | Non |
+| Null pointer | Oui | Non |
+| use-after-free | Oui | Non |
+| Double free | Oui | Non |
+| Gestion manuelle | Souvent | Jamais |
+| Concurrence sécurisée | Difficile | Native |
+| Prédictibilité | Moyenne | Forte |
+| Sécurité | Dépend du développeur | Automatique |
+
+
+Rust force la discipline. C++ part du principe que “le développeur fera attention”.
+Rust part du principe que “le développeur est humain”.
+
+----
+
+## 3. Pourquoi Rust est adopté partout aujourd’hui
+La raison est simple : Rust règle des problèmes que les autres langages ignorent depuis trop longtemps. Dans des systèmes critiques, un seul bug de mémoire peut causer :
+- une faille de sécurité
+- un crash
+- une corruption de données
+- un comportement imprévisible.
+
+C’est pourquoi Rust est utilisé dans :
+- Android (Google)
+- Windows (Microsoft)
+- AWS (Firecracker)
+- Cloudflare
+- 1Password
+- Discord (certaines parties réécrites en Rust)
+
+Le fait que Rust évite entièrement les erreurs mémoire les plus courantes est un argument majeur pour ces entreprises.
+
+----
+
+## 4. Le typage en Rust
 Rust est un langage à typage statique, mais avec une inférence de type très avancée. Cela donne une combinaison intéressante : le compilateur connaît tous les types à la compilation, mais le code reste concis grâce à l'inférence.
 
-### 2.1 Définition explicite vs inférence
+### 4.1 Définition explicite vs inférence
 Lorsqu’on travaille avec Rust, on peut définir un type de manière explicite ou laisser le compilateur le déduire de façon implicite.
 
 #### Définition explicite
@@ -45,7 +87,7 @@ let score = 95;         // i32
 let ville = "Québec";   // &str
 ```
 Rust ne choisit jamais un type ambigu. Par exemple, les entiers sont automatiquement en ``i32``, car c’est un bon compromis de performance.
-### 2.2 Typage strict pour éviter les erreurs silencieuses
+### 4.2 Typage strict pour éviter les erreurs silencieuses
 Rust ne permet pas les conversions implicites. Par exemple :
 ```rust
 let a: i32 = 10;
@@ -64,7 +106,7 @@ C’est ce même principe qui s’applique au modèle mémoire complet : que ce 
 
 ----
 
-## 3. La gestion mémoire en Rust
+## 5. La gestion mémoire en Rust
 Rust a une approche particulière : tout est décidé à la compilation. Le langage ne possède pas de garbage collector, mais ne demande jamais au développeur d’appeler ``free()``, ``delete`` ou tout autre mécanisme manuel.
 
 La gestion de mémoire repose sur trois éléments :
@@ -75,7 +117,7 @@ La gestion de mémoire repose sur trois éléments :
 
 Chaque élément joue un rôle distinct.
 
-### 3.1 La pile (Stack)
+### 5.1 La pile (Stack)
 La pile est une région de mémoire très performante. C’est une structure organisée en LIFO (last-in, first-out) où chaque nouvelle variable vient *se poser* au-dessus de la précédente. Comme tout est géré dans un ordre strict d’entrée et de sortie, les opérations d’allocation et de libération sont extrêmement rapides.
 
 Rust y stocke les variables :
@@ -98,7 +140,7 @@ Ce fonctionnement rend la pile :
 
 Rust utilise la pile dès que possible pour optimiser la performance.
 
-### 3.2 Le tas (Heap)
+### 5.2 Le tas (Heap)
 Le tas est une région de mémoire dynamique, utilisée pour stocker des données dont la taille peut changer ou qui doivent vivre plus longtemps que le bloc courant. C’est une mémoire flexible, à l’opposé de la pile qui est stricte et statique.
 
 Contrairement à la pile, le tas permet d’allouer des données dont la taille peut varier, et dont la durée de vie est plus flexible.
@@ -112,18 +154,18 @@ Exemples typiques :
 let chaine = String::from("Rust");
 ```
 
-Ici, seule la structure interne du ``String`` (pointeur, longueur, capacité) est stockée dans la pile. Le contenu réel (``"Rust"``) est dans le tas.`
+Ici, seule la structure interne du ``String`` (pointeur, longueur, capacité) est stockée dans la pile. Le contenu réel (``"Rust"``) est dans le tas.
 
 Le tas est plus flexible, mais aussi plus complexe à gérer. Rust assure cette gestion automatiquement en combinant ownership et borrowing.
 
 ---- 
 
-## 4. Ownership (propriété)
+## 6. Ownership (propriété)
 L’ownership est le mécanisme central de Rust. C’est lui qui contrôle l’accès aux données dans le tas, quand elles doivent être libérées et comment les valeurs se déplacent dans le programme.
 
 Rust applique **trois règles simples**, mais très strictes.
 
-### 4.1 Règle 1 : chaque valeur a un unique propriétaire
+### 6.1 Règle 1 : chaque valeur a un unique propriétaire
 Quand une variable contient une valeur, elle en devient propriétaire.
 
 ```rust
@@ -138,7 +180,7 @@ Cette responsabilité inclut :
 
 Ce caractère exclusif est intentionnel : Rust doit toujours savoir qui libérera la mémoire plus tard.
 
-### 4.2 Règle 2 : une valeur ne peut avoir qu’un seul propriétaire à la fois
+### 6.2 Règle 2 : une valeur ne peut avoir qu’un seul propriétaire à la fois
 Lorsqu’une variable est assignée à une autre, l’ownership est transféré.
 
 ```rust
@@ -157,7 +199,7 @@ println!("{a}"); // Erreur !
 
 Ce mécanisme s’appelle un **move**. Il évite les double-libérations et les accès concurrents dangereux.
 
-### 4.3 Règle 3 : quand le propriétaire sort de la portée, la valeur est libérée
+### 6.3 Règle 3 : quand le propriétaire sort de la portée, la valeur est libérée
 Dès qu’un bloc de code se termine, Rust appelle automatiquement ``drop()`` sur chaque valeur dont le propriétaire sort de portée.
 ```rust
 {
@@ -169,7 +211,7 @@ Ce mécanisme est inspiré du RAII de C++, mais Rust rend ce comportement obliga
 
 ----
 
-## 5. Borrowing : prêter une valeur sans en transférer la propriété
+## 7. Borrowing : prêter une valeur sans en transférer la propriété
 L’ownership serait trop rigide si le propriétaire devait toujours transférer la propriété pour qu’une autre fonction puisse travailler sur ses données. C’est pourquoi Rust introduit les **emprunts** (*borrowing*).
 
 Le *borrowing* permet :
@@ -182,7 +224,7 @@ Il existe deux types d’emprunts :
 1. Emprunt immuable (``&T``)
 1. Emprunt mutable (``&mut T``)
 
-### 5.1 Emprunt immuable (``&T``)
+### 7.1 Emprunt immuable (``&T``)
 Un emprunt **immuable** signifie que la donnée peut être lue, mais jamais modifiée.
 Autrement dit, immuable = la valeur est accessible, mais figée.
 
@@ -197,12 +239,12 @@ fn afficher(s: &String) {
 ```
 
 Rust autorise :
-- **plusieurs emprunts immuables simultanés**
-- **tant qu'aucun emprunt mutable n’existe au même moment**
+- plusieurs emprunts immuables simultanés
+- tant qu'aucun emprunt mutable n’existe au même moment
 
 Cette règle permet une lecture sécuritaire des données tout en garantissant qu’aucune modification conflictuelle ne puisse arriver.
 
-### 5.2 Emprunt mutable (``&mut T``)
+### 7.2 Emprunt mutable (``&mut T``)
 Une valeur **mutable** est une valeur que l’on peut modifier après sa création. Autrement dit, mutable = la donnée peut changer dans le temps.
 
 Un emprunt mutable accorde une permission exclusive de modification :
@@ -216,21 +258,21 @@ fn incrementer(c: &mut i32) {
 ```
 
 Rust impose deux règles fortes :
-- **Un seul emprunt mutable à la fois.**
-- **Aucun emprunt immuable ne peut exister en même temps qu’un emprunt mutable.**
+- Un seul emprunt mutable à la fois.
+- Aucun emprunt immuable ne peut exister en même temps qu’un emprunt mutable.
 
 Ces règles empêchent les data races et les écritures concurrentes.
 
 ----
 
-## 6. Références : des pointeurs sécurisés
+## 8. Références : des pointeurs sécurisés
 Une référence en Rust est un **pointeur contrôlé**, c’est-à-dire un accès indirect vers une valeur, mais encadré par les règles d’ownership et d’emprunt.
 
 Contrairement aux pointeurs classiques en C/C++, une référence ne peut jamais être:
-- **nulle**
-- ***dangling* (pointant vers une donnée détruite)**
-- **non initialisée**
-- **utilisée en violation des règles de mutabilit**
+- nulle
+- *dangling* (pointant vers une donnée détruite)
+- non initialisée
+- utilisée en violation des règles de mutabilit
 
 **Définition d'un référence**
 
@@ -268,7 +310,9 @@ Rust refuse ce code, car après la fin du bloc, ``x`` est libéré :
 la référence ``r`` pointerait vers une zone de mémoire qui n’existe plus.
 Le compilateur détecte ce problème avant même l’exécution.
 
-## 7. Lifetimes : mieux comprendre la durée de vie d'une référence
+----
+
+## 9. Lifetimes : mieux comprendre la durée de vie d'une référence
 Les lifetimes font souvent peur au début, mais dans les faits, ils ne rendent rien plus compliqué. Ils rendent le comportement du programme explicite.
 
 **Définition d’un lifetime** :
@@ -278,18 +322,18 @@ Autrement dit : un lifetime indique “jusqu’à quand” une référence a le 
 
 Rust génère automatiquement les lifetimes la plupart du temps, mais il y a des situations où il doit nous demander de clarifier. Ce n’est pas un mécanisme qui agit au runtime : c’est entièrement un outil de vérification statique.
 
-### 7.1 Pourquoi Rust a besoin des lifetimes ?
+### 9.1 Pourquoi Rust a besoin des lifetimes ?
 
 Les références (``&T`` ou ``&mut T``) pointent vers des données possédées par quelqu’un d’autre.
 
 Rust doit donc garantir :
-- **que la référence ne survit pas plus longtemps que la donnée pointée**
-- **que la mémoire n’est pas libérée trop tôt**
-- **que toutes les règles d’ownership restent respectées**
+- que la référence ne survit pas plus longtemps que la donnée pointée
+- que la mémoire n’est pas libérée trop tôt
+- que toutes les règles d’ownership restent respectées
 
 Si Rust s’appuyait uniquement sur les règles d’emprunts, il manquerait une dimension : la durée de vie effective de la donnée.
 
-### 7.2 Exemple typique d’erreur évitée
+### 9.2 Exemple typique d’erreur évitée
 ```rust
 let r;
 
@@ -303,7 +347,7 @@ println!("{r}");
 
 Rust rejette ce code non pas pour faire *le difficile*, mais parce qu’il aurait causé une référence vers une donnée libérée. C’est exactement la classe d’erreurs que Rust élimine complètement.
 
-### 7.3 Cas où les lifetimes doivent être explicités
+### 9.3 Cas où les lifetimes doivent être explicités
 Exemple classique :
 ```rust
 fn choisir<'a>(a: &'a str, b: &'a str) -> &'a str {
@@ -312,31 +356,31 @@ fn choisir<'a>(a: &'a str, b: &'a str) -> &'a str {
 ```
 Ici, ``'a`` indique :
 
-*la valeur retournée doit vivre au moins aussi longtemps que les deux paramètres.*
+"*la valeur retournée doit vivre au moins aussi longtemps que les deux paramètres.*"
 
 Rust a besoin d’être sûr que la valeur retournée n’est pas un emprunt d’une valeur qui n’existe plus.
 
-### 7.4 Lifetimes comme système de preuves
+### 9.4 Lifetimes comme système de preuves
 
 Les lifetimes ne changent rien au fonctionnement du programme.
 
 Ils servent uniquement à prouver au compilateur que :
-- **les règles d’emprunt sont valides**
-- **aucune référence ne devient invalide**
-- **aucune donnée n'est libérée trop tôt**
+- les règles d’emprunt sont valides
+- aucune référence ne devient invalide
+- aucune donnée n'est libérée trop tôt
 
 C’est un système de preuves pour garantir la sûreté mémoire.
 
 ----
 
-## 8. Mutabilité, immuabilité et logique derrière leurs règles
+## 10. Mutabilité, immuabilité et logique derrière leurs règles
 
 Rust pousse très loin la notion d’immuabilité. Il préfère rendre tout immuable par défaut.
 
 **Pourquoi ?**
 Parce que la mutabilité est souvent la source de comportements indéterminés, d’effets secondaires indésirables, et de bugs subtils.
 
-### 8.1 Immuble par défaut
+### 10.1 Immuble par défaut
 
 ```rust
 let x = 10;
@@ -348,7 +392,7 @@ let mut x = 10;
 x = 20;
 ```
 
-### 8.2 Mutabilité contrôlée
+### 10.2 Mutabilité contrôlée
 
 Rust sépare clairement chaque niveau de mutabilité :
 1. Variable mutable : ``let mut x = ...``
@@ -356,7 +400,7 @@ Rust sépare clairement chaque niveau de mutabilité :
 1. Mutabilité interne via ``RefCell``, ``Cell`` (cas avancé)
 
 
-### 8.3 Pourquoi la mutabilité est exclusive ?
+### 10.3 Pourquoi la mutabilité est exclusive ?
 Rust ne permet pas des emprunts immuables et mutables en même temps :
 ```rust
 let mut s = String::from("Salut");
@@ -365,9 +409,9 @@ let r1 = &s;
 let r2 = &mut s; // Erreur
 ```
 Cette règle existe pour prévenir des situations comme :
-- **lire pendant que quelqu’un écrit**
-- **écrire pendant qu’un autre écrit**
-- **lire une donnée au milieu d’une mutation partielle**
+- lire pendant que quelqu’un écrit
+- écrire pendant qu’un autre écrit
+- lire une donnée au milieu d’une mutation partielle
 
 Ce sont exactement les scénarios qui causent des bugs imprévisibles en C++.
 
@@ -375,12 +419,12 @@ Rust préfère interdire ces situations plutôt que de laisser courir un risque.
 
 ----
 
-## 9. Analyse mémoire étape par étape : du code aux opérations réelles
+## 11. Analyse mémoire étape par étape : du code aux opérations réelles
 
 Dans cette section, on va analyser ce que Rust fait réellement pour quelques cas concrets.
 L’objectif est de comprendre comment les mécanismes abstraits se traduisent en opérations mémoire réelles.
 
-### 9.1 Exemple 1 — création d’un String
+### 11.1 Exemple 1 — création d’un String
 
 ```rust
 let texte = String::from("Rust");
@@ -407,7 +451,7 @@ Cela signifie deux choses fondamentales :
 Cet exemple montre bien la séparation stack/heap :
 la structure du ``String`` vit dans la pile, mais son contenu dynamique vit dans le tas.
 
-### 9.2 Exemple 2 — move sémantique
+### 11.2 Exemple 2 — move sémantique
 ```rust
 let a = String::from("Données");
 let b = a;
@@ -419,7 +463,7 @@ Ce qui se passe réellement :
 - Seul ``b`` possède désormais l’ownership et pourra libérer la mémoire quand il sortira de portée.
 - Ce modèle est performant (pas de copie inutile) et sécuritaire (un seul propriétaire de la ressource).
 
-### 9.3 Exemple 3 — emprunt immuable
+### 11.3 Exemple 3 — emprunt immuable
 ```rust
 let s = String::from("Salut");
 let r1 = &s;
@@ -431,7 +475,7 @@ Rust autorise plusieurs **références immuables** :
 - Aucune des deux ne peut modifier la donnée.
 - Aucune copie mémoire n’est effectuée.
 
-### 9.4 Exemple 4 — emprunt mutable exclusif
+### 11.4 Exemple 4 — emprunt mutable exclusif
 ```rust
 let mut s = String::from("Rust");
 let r = &mut s;
@@ -445,14 +489,14 @@ Rust empêche toute autre référence pendant l’emprunt mutable :
 
 Ce modèle prévient les race conditions.
 
-### 9.5 Exemple 5 — libération automatique
+### 11.5 Exemple 5 — libération automatique
 ```rust
 {
     let data = String::from("Test");
 } // drop() automatique
 ```
 Rust génère un appel à ``drop(data)`` automatiquement en fin de bloc.
- Il n’est pas possible de “oublier” de libérer une ressource.
+ Il n’est pas possible de “*oublier*” de libérer une ressource.
 
 C’est une sécurité qui couvre toutes les ressources, pas seulement la mémoire :
 - fichiers
@@ -464,29 +508,29 @@ C’est une sécurité qui couvre toutes les ressources, pas seulement la mémoi
 
 ---- 
 
-## 10. Erreurs rendues impossibles par Rust
+## 12. Erreurs rendues impossibles par Rust
 
 Rust élimine automatiquement plusieurs erreurs classiques :
 
-##### 10.1 Pointeurs nuls
+##### 12.1 Pointeurs nuls
 Impossible sans ``Option<T>``, car Rust exige que toute référence soit toujours valide et non nulle.
 
-##### 10.2 Pointeurs pendants
+##### 12.2 Pointeurs pendants
 Impossible, car Rust vérifie la durée de vie des références et refuse toute référence pointant vers une donnée déjà libérée.
 
-##### 10.3 Double libération
+##### 12.3 Double libération
 Impossible, car seul le propriétaire libère la mémoire et l’ownership empêche qu’une ressource soit libérée deux fois.
 
-##### 10.4 Use-after-free
+##### 12.4 Use-after-free
 Rust bloque le code avant compilation dès qu’une référence pourrait accéder à une donnée libérée.
 
-##### 10.5 Data races
+##### 12.5 Data races
 Impossible, car les emprunts empêchent deux écritures simultanées ou une écriture pendant une lecture.
 
-##### 10.6 Modification concurrente
+##### 12.6 Modification concurrente
 Impossible, car un emprunt mutable est exclusif : une seule référence peut modifier la donnée à la fois.
 
-##### 10.7 Fuites mémoire involontaires
+##### 12.7 Fuites mémoire involontaires
 Très rares, puisque Rust libère automatiquement la mémoire. Elles n’apparaissent que si le développeur utilise volontairement des patterns explicites comme ``Rc<RefCell<T>>``.
 
 Rust n’élimine pas seulement les erreurs courantes :
@@ -494,30 +538,7 @@ il élimine surtout les erreurs critiques qui compromettent la stabilité, la s�
 
 ---- 
 
-## 11. Comparaison avec C++ pour comprendre la valeur de Rust
-
-Rust n’a pas été créé pour “remplacer C++”, mais il corrige plusieurs de ses faiblesses.
-
-Voici un portrait simple :
-
-| Problème | C++ | Rust |
-| :-------- | :---: | :----: |
-| Pointeurs non initialisés | Oui | Non |
-| Null pointer | Oui | Non |
-| use-after-free | Oui | Non |
-| Double free | Oui | Non |
-| Gestion manuelle | Souvent | Jamais |
-| Concurrence sécurisée | Difficile | Native |
-| Prédictibilité | Moyenne | Forte |
-| Sécurité | Dépend du développeur | Automatique |
-
-
-Rust force la discipline. C++ part du principe que “le développeur fera attention”.
-Rust part du principe que “le développeur est humain”.
-
-----
-
-## 12. Combinaison de tous les concepts dans un exemple complet
+## 13. Combinaison de tous les concepts dans un exemple complet
 Voici un exemple qui combine typage, ownership, borrowing, mutabilité, références et lifetimes :
 ```rust
 fn main() {
@@ -539,22 +560,22 @@ fn afficher(t: &String) {
 ```
 
 **Analyse complète**
-- **``phrase`` possède son buffer**
-- **La variable détient l’ownership du ``String``, donc elle contrôle la libération de la mémoire.**
-- **La fonction ajouter reçoit un emprunt mutable (&mut ``String``)**
+- ``phrase`` possède son buffer
+- La variable détient l’ownership du ``String``, donc elle contrôle la libération de la mémoire.
+- La fonction ajouter reçoit un emprunt mutable (&mut ``String``)
     - Cela lui donne la permission exclusive de modifier le contenu sans prendre possession de la ressource.
-- **La fonction afficher reçoit un emprunt immuable (``&String``)**
+- La fonction afficher reçoit un emprunt immuable (``&String``)
     - Elle peut lire le contenu librement, mais ne peut pas le modifier.
-- **Rust garantit l’ordre correct des emprunts**
+- Rust garantit l’ordre correct des emprunts
     - L’emprunt mutable se termine avant que l’emprunt immuable ne commence. 
     - Rust refuse tout chevauchement illégal.
-- **Aucun ownership n’est transféré**
+- Aucun ownership n’est transféré
     - Les fonctions travaillent uniquement avec des références. ``phrase`` reste le seul propriétaire.
-- **Aucune copie du buffer n’est faite**
+- Aucune copie du buffer n’est faite
     - Les opérations manipulent le même espace mémoire dans le tas, sans coût supplémentaire.
-- **Aucune fuite possible**
+- Aucune fuite possible
     - Avec l’ownership, Rust assure que la mémoire sera libérée exactement une fois.
-- **Aucune libération manuelle**
+- Aucune libération manuelle
     - Rust détruit automatiquement phrase à la fin du main via son mécanisme de drop.
 
 Cet exemple illustre une structure typique en Rust :
@@ -562,26 +583,7 @@ on passe des références à des fonctions, on évite la copie, on modifie et li
 
 ----
 
-## 13. Pourquoi Rust est adopté partout aujourd’hui
-La raison est simple : Rust règle des problèmes que les autres langages ignorent depuis trop longtemps. Dans des systèmes critiques, un seul bug de mémoire peut causer :
-- une faille de sécurité
-- un crash
-- une corruption de données
-- un comportement imprévisible.
-
-C’est pourquoi Rust est utilisé dans :
-- Android (Google)
-- Windows (Microsoft)
-- AWS (Firecracker)
-- Cloudflare
-- 1Password
-- Discord (certaines parties réécrites en Rust)
-
-Le fait que Rust évite entièrement les erreurs mémoire les plus courantes est un argument majeur pour ces entreprises.
-
-----
-
-## 14. Conclusion générale
+## 15. Conclusion générale
 Dans Rust, chaque concept comme typage, ownership, borrowing, mutabilité et références forme un tout cohérent. Aucun mécanisme n’est isolé. Le langage mise sur :
 - la clarté
 - la prévention des erreurs
@@ -593,6 +595,8 @@ Rust ne tire pas sa puissance d’un runtime massif ou d’un Garbage Collection
 Il la tire d’un modèle logique et structuré qui impose la sécurité dès la compilation.
 
 Cette approche est exigeante au début, mais elle mène à un code beaucoup plus robuste, stable, lisible et performant. Rust n’est pas seulement un langage moderne : c’est une façon structurée et fiable de penser la mémoire et la sécurité logicielle.
+
+----
 
 ## Source
 - https://doc.rust-lang.org/book/

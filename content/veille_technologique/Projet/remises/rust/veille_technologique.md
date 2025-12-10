@@ -146,3 +146,9 @@ https://www.youtube.com/watch?v=0y6RKiIk6cs
 Dans cette vidéo, on apprend que Rust est adopté par des compagnies de services cloud, des projets blockchain et dans le développement backend. Les entreprises commencent aussi à utiliser Rust pour la sécurité, comme 1Password. Grok a utilisé Rust pour son infrastructure, donc dans le domaine de l’apprentissage machine.  
 https://www.youtube.com/watch?v=42FhQWQ6SVA
 
+## Source
+- https://doc.rust-lang.org/book/
+- https://blog.jetbrains.com/rust/2025/06/12/rust-vs-go/#challenges-and-benefits-of-learning-rust
+- https://thehackernews.com/2025/11/rust-adoption-drives-android-memory.html#:~:text=Google%20has%20disclosed%20that%20the,vulnerabilities%20for%20the%20first%20time
+- https://www.youtube.com/watch?v=0y6RKiIk6cs
+- https://www.youtube.com/watch?v=42FhQWQ6SVA

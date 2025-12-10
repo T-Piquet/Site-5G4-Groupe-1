@@ -389,7 +389,7 @@ fn completer_derniere_tache(liste: &mut Vec<String>) {
 }
 ```
 
-#### Ce qu’on applique ici de les notes
+#### Ce qu’on applique ici des notes
 
 On reste dans le même cadre conceptuel : 
 
