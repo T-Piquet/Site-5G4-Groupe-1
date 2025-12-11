@@ -108,7 +108,7 @@ Entrez votre réponse : 13
 Vous avez trouvé le nombre 13 en 4 essais 
 ```
 
-## Question 8
+## Question 8 (Raisons de la popularité du langage Go)
 Comparer la vitesse d'exécution des languages Go, Python et JavaScript à faire 2+2, 100 million de fois.
 - Crée les fichiers ex8.go, ex8.py et ex8.js avec le code si-dessous puis exécuter les.
 
