@@ -20,7 +20,9 @@ Dans cet atelier, vous allez créer une **démonstration interactive** de l’al
 - Afficher sur chaque case les **coûts g, h, f**.
 
 L’atelier est conçu pour être réalisable par un·e débutant·e en **2 à 3 heures**.
+> Voici votre dépôt Git :  
 
+>https://github.com/areejBudayr/atelierpathfinding.git
 ---
 
 ## 2. A* en quelques mots (théorie)
