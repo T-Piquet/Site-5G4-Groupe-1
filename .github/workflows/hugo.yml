@@ -15,6 +15,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -38,5 +41,5 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy
-        id: deployment
+      id: deployment
         uses: actions/deploy-pages@v4
