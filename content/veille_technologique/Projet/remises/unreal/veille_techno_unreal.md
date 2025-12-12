@@ -109,12 +109,10 @@ La source principale et la plus fiable que je compte utiliser pour ma recherche 
 ### YouTube :
 1. **Unreal Engine** (Chaîne officielle)
    - Contenu : Tutoriels, démos techniques, annonces officielles
-   - Fréquence : Publications régulières
-   - Qualité : Source primaire fiable
+   - Qualité : Source première fiable
 
 2. **William Faucher**
-   - Spécialité : Tutoriels techniques avancés UE5
-   - Public : Développeurs et artistes techniques
+   - Spécialité : Tutoriels techniques avancés UE5 pour les développeurs
 
 3. **Unreal Fest 2025 Playlist**
    - Contenu : Présentations complètes des nouvelles fonctionnalités
@@ -140,19 +138,7 @@ La source principale et la plus fiable que je compte utiliser pour ma recherche 
 3. Références spécifiques aux versions 5.4, 5.5, 5.6
 4. Exemples concrets d'utilisation dans l'industrie
 
-**Conclusion** : Gemini a fourni une bonne base mais ChatGPT a été plus complet sur les aspects "humains" (MetaHumans) et pratiques.
+**Conclusion** : Gemini a fourni une bonne base mais ChatGPT a été plus complet sur les certains aspects
 
 ---
 
-## 6. Plan de recherche adopté
-
-### Étendue du sujet :
-- **Technologies clés** : Nanite, Lumen, MetaHumans, PCG, IA
-- **Versions couvertes** : UE5.4 à UE5.7 (prévue)
-- **Applications** : Jeux vidéo, cinéma, architecture, automobile
-
-### Approche méthodologique :
-1. **Sources primaires** : Documentation officielle Epic Games
-2. **Sources secondaires** : Articles techniques spécialisés
-3. **Démonstrations pratiques** : Vidéos YouTube officielles
-4. **Comparaison LLMs** : Validation croisée des informations
