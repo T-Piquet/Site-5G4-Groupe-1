@@ -91,7 +91,6 @@ Ce système a une utilité énorme :
 
 on peut manipuler des nombres gigantesques, mais les résultats restent toujours entre `0` et `p-1`.
 
-C’est parfait pour la cryptographie.
 
 **Deux propriétés importantes :**
 
@@ -363,7 +362,7 @@ La sécurité de DH dépend aussi du choix des paramètres :
 
 Dans la pratique :
 
-- on utilise des paramètres recommandés par des normes (RFC, suites cryptographiques) ;
+- on utilise des paramètres recommandés par des normes;
 - on évite d’inventer soi‑même des paramètres sans expertise.
 
 Une autre menace est l’utilisation de groupes **partagés** par de très nombreux systèmes :
@@ -377,14 +376,13 @@ Pour résumer les bonnes pratiques :
 
 - **Authentifier** l’échange Diffie–Hellman :
   - via certificats X.509 ;
-  - signatures numériques (RSA, ECDSA, EdDSA, …) ;
-  - ou d’autres mécanismes (PSK, etc.).
+  - signatures numériques;
+  - ou d’autres mécanismes.
 - **Utiliser des clés éphémères** 
 - **Choisir des paramètres robustes** :
-  - taille de `p` suffisante ou courbe elliptique moderne recommandée ;
+  - taille de `p` suffisante ;
   - bases `g` standardisées.
-- **Mettre à jour les suites cryptographiques** :
-  - éviter les paramètres obsolètes (DH 1024 bits) ;
+- **Mettre à jour les suites cryptographiques**
 
 ---
 
