@@ -45,6 +45,7 @@ La réponse permet a l'etudiant d'organiser les notions pour un cours. Par contr
 
 
 # Cours sur le sujet
+- **Tutoriel relativement récent** : <https://www.creativeapplications.net/tutorial/hydra-tutorial-series-for-everyone/>
 - **Workshop Live Coding Audioreactive Visuals with Hydra (InterAccess, 2024)** : <https://www.interaccess.org/workshop/live-coding-audioreactive-visuals-with-hydra>
 - **Workshop Live Coding in Hydra (Creative Coding Utrecht, Iterations 2024)** :  <https://creativecodingutrecht.nl/en/archive/iterations-2024-workshop-livecoding-in-hydra>
 
