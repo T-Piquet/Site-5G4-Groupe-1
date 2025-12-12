@@ -40,7 +40,7 @@ C’est précisément ce défi qu’adresse Diffie–Hellman.
 **Année d’invention :**
 
 - 1976, publication du papier fondateur :
-  *“New Directions in Cryptography”*
+  _“New Directions in Cryptography”_
 
 **Contexte du problème à résoudre :**
 
@@ -115,7 +115,7 @@ où :
 - `g` est une base publique (un générateur) comprise entre `2` et `p-1`,
 - `a` et `b` sont des secrets entiers (les exposants).
 
-Calculer `g^a mod p`  (en multipliant `g` par lui-même `a` fois) serait beaucoup trop lent pour de grands exposants.  
+Calculer `g^a mod p` (en multipliant `g` par lui-même `a` fois) serait beaucoup trop lent pour de grands exposants.  
 On utilise donc des algorithmes rapides, par exemple :
 
 - **l’exponentiation rapide** (exponentiation binaire) ;
@@ -131,7 +131,8 @@ Connaître `g^a mod p` **ne permet pas** d’en déduire facilement `a`.
 
 Et c’est là que le protocole devient très puissant.
 
-### 1.3 Pourquoi `g^a mod p` est difficile à inverser ?  
+### 1.3 Pourquoi `g^a mod p` est difficile à inverser ?
+
 #### Le logarithme discret
 
 Le problème mathématique central de Diffie–Hellman est le :
@@ -239,7 +240,6 @@ Pour retrouver `a` à partir de `A`, l’attaquant devrait résoudre :
 
 > trouver `a` tel que `A = g^a mod p` == Difficile voir impossible
 
-
 ---
 
 ## 3. Sécurité et logarithme discret
@@ -268,7 +268,6 @@ En pratique, pour des tailles de paramètres recommandées (par exemple `p` de 2
 
 C’est pour cette raison qu’on considère Diffie–Hellman sûr aujourd’hui, à condition d’utiliser des paramètres modernes (grande taille de `p`, bons groupes, clés éphémères, etc.).
 
-
 ### 3.2 Taille des paramètres
 
 Pour que Diffie–Hellman soit sécurisé, il faut choisir :
@@ -278,7 +277,7 @@ Pour que Diffie–Hellman soit sécurisé, il faut choisir :
 
 Des tailles courantes :
 
-- 1024 bits : considérée comme insuffisante à long terme; 
+- 1024 bits : considérée comme insuffisante à long terme;
 - 2048 bits : encore jugée acceptable aujourd’hui ;
 - 3072 bits et plus : pour une marge de sécurité plus confortable.
 
@@ -304,12 +303,12 @@ Les protocoles modernes (comme TLS 1.3) recommandent fortement :
 Lorsque vous accédez à un site en `https://`, le navigateur et le serveur web :
 
 - négocient une suite cryptographique ;
-- utilisent souvent une variante de Diffie–Hellman  pour établir une clé de session.
+- utilisent souvent une variante de Diffie–Hellman pour établir une clé de session.
 
 Schéma :
 
 1. Le client et le serveur s’accordent sur des paramètres publics (parfois fixés par la suite de chiffrement).
-2. Ils effectuent un échange Diffie–Hellman (classique ou sur courbes elliptiques).
+2. Ils effectuent un échange Diffie–Hellman.
 3. La clé obtenue sert ensuite avec AES (ou un autre algorithme symétrique) pour chiffrer le reste de la session.
 
 Le rôle de DH est donc de résoudre **le problème de la distribution de clé** dans un environnement non sûr (Internet).
@@ -362,13 +361,8 @@ La sécurité de DH dépend aussi du choix des paramètres :
 
 Dans la pratique :
 
-- on utilise des paramètres recommandés par des normes;
+- on utilise des paramètres recommandés par des normes (RFC, suites cryptographiques) ;
 - on évite d’inventer soi‑même des paramètres sans expertise.
-
-Une autre menace est l’utilisation de groupes **partagés** par de très nombreux systèmes :
-
-- certains attaquants peuvent pré‑calculer des tables pour un groupe donné ;
-- d’où l’importance, dans certains contextes, d’utiliser des groupes bien choisis et, si possible, propres à un système ou à une application.
 
 ### 5.3 Importance de l’authentification et du renouvellement
 
@@ -376,8 +370,8 @@ Pour résumer les bonnes pratiques :
 
 - **Authentifier** l’échange Diffie–Hellman :
   - via certificats X.509 ;
-  - signatures numériques;
-  - ou d’autres mécanismes.
+  - signatures numériques (RSA, ECDSA, EdDSA, …) ;
+  - ou d’autres mécanismes (PSK, etc.).
 - **Utiliser des clés éphémères** 
 - **Choisir des paramètres robustes** :
   - taille de `p` suffisante ;
@@ -388,7 +382,7 @@ Pour résumer les bonnes pratiques :
 
 ## 6. Résumé
 
-Diffie–Hellman répond à un problème  de la cryptographie :
+Diffie–Hellman répond à un problème de la cryptographie :
 
 > Comment établir une clé symétrique partagée sur un réseau non fiable, sans l’envoyer telle quelle ?
 
@@ -414,8 +408,3 @@ Vidéo explicative YouTube — Diffie–Hellman Key Exchange (version 1) —
 https://www.youtube.com/watch?v=fNwVKNx7u6w&t=25s
 Vidéo explicative YouTube — Diffie–Hellman Key Exchange (version 2) —  
 https://www.youtube.com/watch?v=n4YnXv6dZak
-
-
-
-
-
