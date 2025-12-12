@@ -1,4 +1,4 @@
-# Clonez le dépot
+.# Clonez le dépot
 
 Ce site utilise de le thème relearn. Cette dépendance est mise comme un sous module.
 
@@ -14,7 +14,7 @@ Si vous oubliez cette étape, la commande `$ hugo serve` retournera une erreur.
 
 # Testez vos changements
 
-Ce site Hugo a besoin de la version 148.1 minimum à cause de sa dépendance au thème relearn. 
+Ce site Hugo a besoin de la version 148.1 minimum à cause de sa dépendance au thème relearn.
 
 Créez un dev container avec vscode en utilisant le Dockerfile fourni.
 
