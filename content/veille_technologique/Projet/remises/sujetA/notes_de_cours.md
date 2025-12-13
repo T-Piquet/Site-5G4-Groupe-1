@@ -274,55 +274,6 @@ void Update()
 }
 ```
 
-## Caméras et lumières
-
-Caméras :
-
-- Caméra principale
-- Caméra UI
-- Caméra minimap
-
-Lumières :
-
-- Directional
-- Point
-- Spot
-- Area (HDRP)
-
-URP (Universal Render Pipeline) et shaders modernes, post-processing intégré.
-
-## Bonnes pratiques et architecture
-
-Organisation recommandée :
-
-```
-Assets/
-  Scripts/Core/
-  Scripts/Gameplay/
-  Scripts/UI/
-  Prefabs/
-  Scenes/
-  Materials/
-  Models/
-  Audio/
-```
-
-Patterns utiles :
-
-- `ScriptableObjects` pour configuration
-- Event Bus
-- Architecture modulaire
-- MVC/MVVM pour apps non-jeu
-- Dependency Injection (ex. Zenject)
-
-Outils recommandés :
-
-- Cinemachine
-- TextMeshPro
-- DOTween
-- URP
-- Addressables
-
 ---
 
 ## Optimisation avancée — ECS / DOTS
@@ -348,6 +299,15 @@ Autrement dit :
 > *On sépare complètement les données, la logique et l'organisation mémoire.*
 
 Cette séparation permet un énorme gain de performance.
+
+Plus Simplement, En POO (Project Oriented Programing) chaque objet a un script associer et diffère de chaque. Le DOTS, chaque object est un ID qui appèle tous le mème script.
+Ce scrip fait actionner tous en mème temps avec seulement un script.
+
+### Ceci est possible grace a quelleque technologies : 
+
+- **ECS (Entity Component System) :** La structure du code
+- **Burst Compiler :** Un compileur qui optimise le code 
+- **C# Job System :** Un système qu permet d'écrire du code multithread facilement
 
 ---
 
@@ -521,19 +481,18 @@ public struct MoveJob : IJobChunk
 - Utiliser object pooling et réutiliser des entités plutôt que de les détruire/créer.
 - Réduire la granularité des composants pour éviter des archetypes trop nombreux.
 
-### Checklist rapide pour optimisation
-
-- [ ] Profiler : identifier la partie la plus coûteuse
-- [ ] Réduire structural changes dans la boucle chaude
-- [ ] Grouper les composants fréquemment accédés
-- [ ] Passez les jobs en `[BurstCompile]` et schedulez-les
-- [ ] Utiliser `EntityCommandBuffer` pour modifications différées
-- [ ] Préférer `IJobChunk` / `Entities.ForEach().ScheduleParallel()` pour itérations massives
-
 ---
 
 ## Conclusion
 
 Unity est un moteur complet, flexible et utilisé professionnellement pour créer des projets interactifs multiplateformes. En maîtrisant les scènes, GameObjects, components, C#, UI, physique, animations et pipeline de build, vous pouvez produire des applications efficaces et structurées. Les systèmes avancés comme Addressables, URP, le New Input System, les Shaders et DOTS permettent d’aller encore plus loin dans la performance et la qualité.
 
+## Source
 
+https://unity.com/dots
+https://docs.unity3d.com/Packages/com.unity.entities@1.0/manual/index.html
+
+
+Pour plus d'information :
+https://unity.com/blog/engine-platform/new-ebook-understanding-unity-dots
+https://www.youtube.com/playlist?list=PLzDRvYVwl53s40yP5RQXitbT--IRcHqba

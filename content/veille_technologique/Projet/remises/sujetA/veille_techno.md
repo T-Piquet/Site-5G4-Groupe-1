@@ -90,3 +90,12 @@ ________________________________________________________________________________
 **Retour sur la Réponse de ChatGPT**
 
 La réponse me semble relativement complète, elle ne vas pas en détaille sur le sujet trop, mais vient expliquer la base du DOTS et illustre quelques utilisations possible avec cette technologie.
+La réponse est vennue beaucoups plus rapidement du LLM que les sites internettes, mais si on recherches les sites on peut trouver plus d'information plus pertinante au sujet, mais ceci prend plus de temps.
+
+Je ne connaissais pas le sujet, mais le LLM et la Documentation de Unity m'a aidée beaucoups 
+
+Documentation Unity DOTS : https://docs.unity3d.com/Packages/com.unity.entities@1.0/manual/index.html
+
+Une Chaine Youtube que j'ai trouver a fait plusieur guide et mème crée une vidéo tutoriel de 7h30 sur Unity DOTS
+Lien Chaine : https://www.youtube.com/@CodeMonkeyUnity
+Lien Tuto : https://www.youtube.com/watch?v=1gSnTlUjs-s
