@@ -51,7 +51,7 @@ Les questions ont été formulées comme ceci, même si tous les concepts évoqu
 - Quelles attaques sont classiques contre Diffie-Hellman ?
 - Pourquoi le protocole reste-t-il utilisé aujourd’hui malgré son ancienneté ?
 
-Au fil de la discussion, le LLM a introduit des notions plus avancées (logarithme discret, sous-groupes faibles, variantes éphémères, courbes elliptiques, place dans TLS) qui ont ensuite servi de points d’entrée pour la veille.
+Au fil de la discussion, le LLM a introduit des notions plus avancées (logarithme discret, sous-groupes faibles, variantes éphémères, courbes elliptiques, place dans TLS).
 
 
 ---
