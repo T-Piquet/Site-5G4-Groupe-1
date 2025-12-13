@@ -1,13 +1,14 @@
 +++
-title = "Hiérarchie mémoire"
+title = "Unity"
 weight = 1
 [params]
-  author = 'Thomas Piquet'
+  author = 'Félix-Etienne Hamel'
 +++
 
 > [!info] 
-> Description du projet et de l'equipe.
+> L'Équipe est seulment moi, Félix-Etienne Hamel
+> Ceci est un cours sur Unity et sur leur ensemble de technologies qui permetent une approche DOTS( Data-Oriented Technology Stack ) a la programation
 
-## La hiérarchie mémoire dans les microprocesseur généraliste.
+## Unity DOTS, Data-Oriented Technology Stack (Pile technologique orientée données)
 
-Par Thomas Piquet.
+Par Félix-Etienne Hamel.
