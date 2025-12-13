@@ -242,6 +242,14 @@ Pour retrouver `a` à partir de `A`, l’attaquant devrait résoudre :
 
 ---
 
+### 2.4 Plan de recherche
+
+À partir de ces échanges, mon plan de recherche s’organise autour de quatre axes :  
+1) rappels mathématiques nécessaires (groupes, modulo, logarithme discret) ;  
+2) description détaillée du protocole Diffie-Hellman et de ses variantes (DHE) ;  
+3) usages concrets dans les protocoles modernes (TLS, VPN, messageries chiffrées) ;  
+4) limites, attaques connues et bonnes pratiques de mise en œuvre.  
+
 ## 3. Sécurité et logarithme discret
 
 ### 3.1 Le problème du logarithme discret
