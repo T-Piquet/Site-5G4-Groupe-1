@@ -268,7 +268,6 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
 }
 ```
 
-##### 2. Optimiser le rendu des rayons
 
 Problème : Dans le code original, chaque rayon appelle `ray.draw(rays)` individuellement, ce qui est inefficace.
 
@@ -334,7 +333,9 @@ int main() {
     // ... reste du code ...
 }
 ```
+Voici le résultat:
 
+ ![Resultat](../Pictures/twentyrays.png)
 
 ---
 ### Récapitulatif des commandes importantes
