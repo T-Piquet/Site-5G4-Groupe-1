@@ -268,7 +268,7 @@ std::io::stdout().flush().unwrap();
 
 Il faut comprendre que quand on tape le nom comme antoine et que l'on fait "enter", rust rentre ceci dans la variable nom : **"antoine\n"**
 
-Pour remédier à ce problème il faut ajouter ce code :
+Pour remédier à ce problème, il faut ajouter ce code :
 
 ```rust
 let nom = nom.trim();
